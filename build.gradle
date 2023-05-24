@@ -1,0 +1,56 @@
+plugins {
+    id 'java'
+    id('io.qameta.allure') version '2.11.2'
+}
+
+group 'ru.maruspim'
+version '1.0-SNAPSHOT'
+
+def selenideVersion = "6.13.0",
+    allureVersion = "2.22.0",
+    jUnitVersion = "5.9.3",
+    slf4jVersion = "2.0.7",
+    jetbrainsVersion = "23.0.0"
+
+allure {
+    report {   // секция репорта
+        version.set(allureVersion)
+    }
+    adapter { // creates folder build/allure-results
+        aspectjWeaver.set(true) // обработка аннотации @Step
+        frameworks {
+            junit5 { // название фреймворка
+                adapterVersion.set(allureVersion) // версия интеграции фреймворка и Allure
+            }
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation(
+            "com.github.javafaker:javafaker:1.0.2",
+            "com.codeborne:selenide:$selenideVersion",
+            'com.codeborne:pdf-test:1.5.0',
+            'com.codeborne:xls-test:1.4.3',
+            "org.junit.jupiter:junit-jupiter:$jUnitVersion",
+            "org.jetbrains:annotations:$jetbrainsVersion",
+            "io.qameta.allure:allure-selenide:$allureVersion",
+            "org.slf4j:slf4j-simple:$slf4jVersion"
+    )
+}
+
+
+compileJava {
+    options.encoding = 'UTF-8'
+}
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
+
+test {
+    useJUnitPlatform()
+}

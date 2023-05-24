@@ -1,0 +1,7 @@
+| * Это поле является обязательным
+глафира | * Неверный E-mail
+abcd | * Неверный E-mail
+abcd@ |* Неверный E-mail
+abcd@mail | * Неверный E-mail
+abcd@mail. | * Неверный E-mail
+a^bcd@mail.d24 | * Неверный E-mail
