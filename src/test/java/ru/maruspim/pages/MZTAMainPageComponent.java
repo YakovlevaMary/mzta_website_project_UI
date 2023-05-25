@@ -17,6 +17,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class MZTAMainPageComponent {
     // Selenide elements / locator / etc
     SelenideElement formHeaderText = $("[class=uk-text-uppercase]"),
+            cookiesAcceptButton = $("[class='button cookie_accept uk-button uk-button-danger']"),
             registrationButton = $("[uk-icon=user]"),
             cartButton = $("[uk-icon=cart]"),
             loginFormText = $("#login-form"),
@@ -31,7 +32,7 @@ public class MZTAMainPageComponent {
             downloadingItemList = navigationBar.$("li:nth-child(6) div ul"),
             partnersItemList = navigationBar.$("li:nth-child(7) div ul"),
             contactsItemList = navigationBar.$("li:nth-child(8) div ul"),
-            priceListItemRef = $("a[href*='/skachat/prajs-list']"),
+            searchInput =$("[class='uk-inline ']").$("[required='required']"),
             headingText = $("[class='uk-h4 uk-heading-bullet']");
 
 
@@ -42,6 +43,11 @@ public class MZTAMainPageComponent {
         open(pageUrl);
         formHeaderText.shouldHave(text("Московский завод тепловой автоматики"));
 
+        return this;
+    }
+    @Step("Press access cookies button")
+    public MZTAMainPageComponent acceptCookies() {
+        cookiesAcceptButton.shouldBe(visible).pressEnter();
         return this;
     }
 
@@ -64,8 +70,8 @@ public class MZTAMainPageComponent {
 
     @Step("Open shopping cart")
     public MZTAMainPageComponent openShoppingCart() {
-
-
+        cartButton.click();
+        headingText.shouldHave(text("Корзина"));
         return this;
     }
 
@@ -98,13 +104,28 @@ public class MZTAMainPageComponent {
         return this;
     }
 
-    @Step("Open and check content of the main menu items ")
+    @Step("Open and check content of the main menu items")
     public MZTAMainPageComponent menuItemsContentCheck() {
         navigationBar.find(byText("Партнерам")).hover();
         partnersItemRef.click();
         headingText.shouldHave(text(("Партнерам")));
         cartButton.click();
-        headingText.shouldHave(text("Пустая корзина"));
+        headingText.shouldHave(text("орзина"));
+        return this;
+    }
+
+    @Step("Check search by article of a product")
+    public MZTAMainPageComponent searchByArticle() {
+        searchInput.setValue("гЕ3035127-01").pressEnter();
+        headingText.shouldHave(text(("kB.DIO - Модули расширения с цифровыми каналами")));
+
+        return this;
+    }
+    @Step("Check search by name of a product")
+    public MZTAMainPageComponent searchByName() {
+        searchInput.setValue("kB.TB").pressEnter();
+        headingText.shouldHave(text(("kB.TB - Коннекторный блок")));
+
         return this;
     }
 

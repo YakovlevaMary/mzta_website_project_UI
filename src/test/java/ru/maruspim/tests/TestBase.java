@@ -6,11 +6,9 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import ru.maruspim.helpers.Attach;
-import ru.maruspim.pages.MZTADownloadPageComponent;
-import ru.maruspim.pages.MZTAMainPageComponent;
-import ru.maruspim.pages.MZTAProductionPageComponent;
-import ru.maruspim.pages.MZTARegistrationPageComponent;
+import ru.maruspim.pages.*;
 import ru.maruspim.utils.RandomUtils;
 
 //@Tag("remote")
@@ -18,6 +16,7 @@ public class TestBase {
     MZTAMainPageComponent mztaMainPageComponent = new MZTAMainPageComponent();
     MZTADownloadPageComponent mztaDownloadPageComponent = new MZTADownloadPageComponent();
     MZTAProductionPageComponent mztaProductionPageComponent = new MZTAProductionPageComponent();
+    MZTACartPageComponent mztaCartPageComponent = new MZTACartPageComponent();
     MZTARegistrationPageComponent mztaRegistrationPageComponent = new MZTARegistrationPageComponent();
     RandomUtils randomUtils = new RandomUtils();
 
@@ -25,6 +24,7 @@ public class TestBase {
     static void beforeAll() {
         Configuration.baseUrl = "https://www.mzta.ru";
         Configuration.browserSize = "1920x1080";
+
         /*Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
 
 
@@ -41,12 +41,12 @@ public class TestBase {
         Configuration.browser = browser[0];
         Configuration.browserVersion = browser[1];
 
-        Configuration.browserSize = System.getProperty("browser_size", "1920x1080");
+        Configuration.browserSize = System.getProperty("browser_size", "1920x1080");*/
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true); // активировать потоковое видео при запуске браузера
         capabilities.setCapability("enableVideo", true); // активировать запись видео
-        Configuration.browserCapabilities = capabilities;*/
+        Configuration.browserCapabilities = capabilities;
     }
 
     @BeforeEach
@@ -58,7 +58,7 @@ public class TestBase {
     void addAttachments() {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
-        //Attach.browserConsoleLogs();
+        Attach.browserConsoleLogs();
         Attach.addVideo();
     }
 }

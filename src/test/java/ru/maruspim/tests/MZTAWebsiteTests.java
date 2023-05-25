@@ -20,16 +20,16 @@ public class MZTAWebsiteTests extends TestBase {
 
         step("Open MZTA main page: ", () -> {
             mztaMainPageComponent.openPage(pageUrl);
+
         });
     }
-
     @Feature("Checking MZTA website")
     @Owner("Mary Pimenova")
 
 
     @ValueSource(strings = {"* Доступно"})
-    @ParameterizedTest(name = "For the entered login/email appears message: {0}")
-    @DisplayName("Checking for the successful fulfilling of the MZTA registration form")
+    @ParameterizedTest(name = "Entered login/email are valid")
+    @DisplayName("Successful fulfilling of the registration form.")
     @Tags({
             @Tag("WEB"),
             @Tag("NORMAL")
@@ -58,8 +58,8 @@ public class MZTAWebsiteTests extends TestBase {
     }
 
     @CsvFileSource(resources = "/wrongEmailValidation.csv", delimiter = '|')
-    @ParameterizedTest(name = "For the entered e-mail: {0} an error message is displayed: {1}")
-    @DisplayName("Checking for an error message presence when entering an invalid e-mail")
+    @ParameterizedTest(name = "An error message is displayed for the entered e-mail: {0}")
+    @DisplayName("Set invalid e-mail.")
     @Tags({
             @Tag("WEB"),
             @Tag("NORMAL")
@@ -74,8 +74,8 @@ public class MZTAWebsiteTests extends TestBase {
     }
 
     @CsvFileSource(resources = "/wrongLoginValidation.csv", delimiter = '|')
-    @ParameterizedTest(name = "For the entered login: {0} an error message is displayed: {1}")
-    @DisplayName("Checking for an error message presence when entering an invalid (already taken) login")
+    @ParameterizedTest(name = "An error message is displayed for the entered login: {0}")
+    @DisplayName("Set invalid login.")
     @Tags({
             @Tag("WEB"),
             @Tag("NORMAL")
@@ -90,8 +90,8 @@ public class MZTAWebsiteTests extends TestBase {
     }
 
     @CsvFileSource(resources = "/wrongPasswordValidation.csv", delimiter = '|')
-    @ParameterizedTest(name = "For the entered passwords: {0} and {1} error messages are displayed: {2} and {3}")
-    @DisplayName("Checking for an error message presence when entering an invalid password")
+    @ParameterizedTest(name = "Error messages are displayed for the entered passwords")
+    @DisplayName("Set invalid password.")
     @Tags({
             @Tag("WEB"),
             @Tag("NORMAL")
@@ -143,13 +143,28 @@ public class MZTAWebsiteTests extends TestBase {
     })
     void CartFillingTest() {
         step("Check cart filling: ", () -> {
-            mztaMainPageComponent.openProductionPage();
-            //sleep(5000);
+            mztaMainPageComponent.acceptCookies()
+                    .openProductionPage();
             mztaProductionPageComponent.productCartFilling();
-           // sleep(5000);
             mztaMainPageComponent.openShoppingCart();
-
+            mztaCartPageComponent.productsInCartCheck();
+            sleep(5000);
         });
     }
 
+    @Test
+    @DisplayName("Checking searching by the arcticle or name")
+    @Tags({
+            @Tag("WEB"),
+            @Tag("NORMAL")
+    })
+    void SearchInputTest() {
+        step("Check search in the product section: ", () -> {
+            mztaMainPageComponent.openProductionPage()
+                    .searchByArticle()
+                    .openProductionPage()
+                    .searchByName();
+            sleep(5000);
+        });
+    }
 }

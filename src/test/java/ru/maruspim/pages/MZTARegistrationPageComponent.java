@@ -72,6 +72,7 @@ public class MZTARegistrationPageComponent {
         userCaptchaInput.setValue(value).pressTab();
         return this;
     }
+    @Step("Checking the content of the login message box")
     public MZTARegistrationPageComponent loginMessageBoxContentChecking(String expectedMessage) {
 
         loginContentMessageBox.shouldBe(visible).shouldHave(text(expectedMessage));
@@ -79,13 +80,14 @@ public class MZTARegistrationPageComponent {
         return this;
     }
 
+    @Step("Checking the content of the email message box")
     public MZTARegistrationPageComponent emailMessageBoxContentChecking(String expectedMessage) {
 
         emailContentMessageBox.shouldBe(visible).shouldHave(text(expectedMessage));
 
         return this;
     }
-
+    @Step("Checking the content of the password message box")
     public MZTARegistrationPageComponent passwordMessageBoxContentChecking(String expectedMessage_1, String expectedMessage_2) {
         passwordContentMessageBox.shouldBe(visible).shouldHave(text(expectedMessage_1));
         passwordRepeatedContentMessageBox.shouldBe(visible).shouldHave(text(expectedMessage_2));
