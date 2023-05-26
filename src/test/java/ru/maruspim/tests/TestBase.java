@@ -11,7 +11,6 @@ import ru.maruspim.helpers.Attach;
 import ru.maruspim.pages.*;
 import ru.maruspim.utils.RandomUtils;
 
-//@Tag("remote")
 public class TestBase {
     MZTAMainPageComponent mztaMainPageComponent = new MZTAMainPageComponent();
     MZTADownloadPageComponent mztaDownloadPageComponent = new MZTADownloadPageComponent();

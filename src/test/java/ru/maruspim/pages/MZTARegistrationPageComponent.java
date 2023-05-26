@@ -5,11 +5,9 @@ import io.qameta.allure.Step;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 
 public class MZTARegistrationPageComponent {
     // Selenide elements / locator / etc
@@ -18,10 +16,10 @@ public class MZTARegistrationPageComponent {
             userPasswordInput = $("#user_password"),
             userPasswordRepeatInput = $("#user_password2"),
             userEmailInput = $("#user_email"),
-            loginContentMessageBox= $(".user_usernameformError .formErrorContent"),
+            loginContentMessageBox = $(".user_usernameformError .formErrorContent"),
             emailContentMessageBox = $(".user_emailformError .formErrorContent"),
-            passwordContentMessageBox= $(".user_passwordformError .formErrorContent"),
-            passwordRepeatedContentMessageBox= $(".user_password2formError .formErrorContent"),
+            passwordContentMessageBox = $(".user_passwordformError .formErrorContent"),
+            passwordRepeatedContentMessageBox = $(".user_password2formError .formErrorContent"),
             newsSubscription = $("#user_subscription0"),
             antiSpamCheck = $(".variation_value"),
             userCaptchaInput = $("#user_captcha");
@@ -29,7 +27,7 @@ public class MZTARegistrationPageComponent {
     // Actions
     @Step("Set user name value")
     public MZTARegistrationPageComponent setUserName(String value) {
-       userNameInput.setValue(value).pressTab();
+        userNameInput.setValue(value).pressTab();
 
         return this;
     }
@@ -40,6 +38,7 @@ public class MZTARegistrationPageComponent {
 
         return this;
     }
+
     @Step("Set and repeat user password value")
     public MZTARegistrationPageComponent setUserPassword(String password_1, String password_2) {
         userPasswordInput.setValue(password_1).pressTab();
@@ -53,6 +52,7 @@ public class MZTARegistrationPageComponent {
 
         return this;
     }
+
     @Step("Click on news subscription checkbox")
     public MZTARegistrationPageComponent clickOnSubscriptionCheckbox() {
         newsSubscription.click();
@@ -63,7 +63,7 @@ public class MZTARegistrationPageComponent {
     public MZTARegistrationPageComponent antiSpamChecking() throws ScriptException {
 
         String antiSpam = antiSpamCheck.getText();
-        String [] antiSpamSubstring = antiSpam.split("=");
+        String[] antiSpamSubstring = antiSpam.split("=");
         ScriptEngineManager mgr = new ScriptEngineManager();
         ScriptEngine engine = mgr.getEngineByName("JavaScript");
         Object a = engine.eval(antiSpamSubstring[0]);
@@ -72,6 +72,7 @@ public class MZTARegistrationPageComponent {
         userCaptchaInput.setValue(value).pressTab();
         return this;
     }
+
     @Step("Checking the content of the login message box")
     public MZTARegistrationPageComponent loginMessageBoxContentChecking(String expectedMessage) {
 
@@ -87,6 +88,7 @@ public class MZTARegistrationPageComponent {
 
         return this;
     }
+
     @Step("Checking the content of the password message box")
     public MZTARegistrationPageComponent passwordMessageBoxContentChecking(String expectedMessage_1, String expectedMessage_2) {
         passwordContentMessageBox.shouldBe(visible).shouldHave(text(expectedMessage_1));

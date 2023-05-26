@@ -1,14 +1,7 @@
 package ru.maruspim.pages;
 
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.xlstest.XLS;
-import com.codeborne.pdftest.PDF;
 import io.qameta.allure.Step;
-import org.junit.jupiter.api.Assertions;
-
-
-import java.io.File;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
@@ -32,9 +25,8 @@ public class MZTAMainPageComponent {
             downloadingItemList = navigationBar.$("li:nth-child(6) div ul"),
             partnersItemList = navigationBar.$("li:nth-child(7) div ul"),
             contactsItemList = navigationBar.$("li:nth-child(8) div ul"),
-            searchInput =$("[class='uk-inline ']").$("[required='required']"),
+            searchInput = $("[class='uk-inline ']").$("[required='required']"),
             headingText = $("[class='uk-h4 uk-heading-bullet']");
-
 
 
     // Actions
@@ -45,6 +37,7 @@ public class MZTAMainPageComponent {
 
         return this;
     }
+
     @Step("Press access cookies button")
     public MZTAMainPageComponent acceptCookies() {
         cookiesAcceptButton.shouldBe(visible).pressEnter();
@@ -121,6 +114,7 @@ public class MZTAMainPageComponent {
 
         return this;
     }
+
     @Step("Check search by name of a product")
     public MZTAMainPageComponent searchByName() {
         searchInput.setValue("kB.TB").pressEnter();

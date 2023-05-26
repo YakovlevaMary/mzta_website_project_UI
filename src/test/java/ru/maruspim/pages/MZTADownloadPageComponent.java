@@ -5,11 +5,12 @@ import com.codeborne.selenide.SelenideElement;
 import com.codeborne.xlstest.XLS;
 import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
+
 import java.io.File;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-
 
 public class MZTADownloadPageComponent {
     // Selenide elements / locator / etc
@@ -21,7 +22,6 @@ public class MZTADownloadPageComponent {
 
 
     // Actions
-
     @Step("Download PDF and check its content")
     public MZTADownloadPageComponent pdfParseTest() throws Exception {
         navigationBar.find(byText("Скачать")).hover();

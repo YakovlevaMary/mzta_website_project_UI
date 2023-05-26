@@ -1,18 +1,9 @@
 package ru.maruspim.pages;
 
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.impl.WebElementSelector;
 import io.qameta.allure.Step;
-import org.openqa.selenium.*;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.chrome.ChromeDriver;
-
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byCssSelector;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.sleep;
-
 
 public class MZTAProductionPageComponent {
     // Selenide elements / locator / etc

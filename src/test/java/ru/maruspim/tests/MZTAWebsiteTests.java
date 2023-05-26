@@ -6,8 +6,6 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.ValueSource;
-import ru.maruspim.pages.MZTAProductionPageComponent;
-
 import static com.codeborne.selenide.Selenide.sleep;
 import static io.qameta.allure.Allure.step;
 
@@ -23,6 +21,7 @@ public class MZTAWebsiteTests extends TestBase {
 
         });
     }
+
     @Feature("Checking MZTA website")
     @Owner("Mary Pimenova")
 
@@ -172,7 +171,6 @@ public class MZTAWebsiteTests extends TestBase {
                     .searchByArticle()
                     .openProductionPage()
                     .searchByName();
-            sleep(5000);
         });
     }
 }
