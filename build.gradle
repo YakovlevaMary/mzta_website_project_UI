@@ -54,3 +54,19 @@ compileTestJava {
 test {
     useJUnitPlatform()
 }
+
+tasks.withType(Test) {
+    systemProperties(System.getProperties())
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
+
+task remote(type: Test) {
+    useJUnitPlatform {
+        includeTags("remote")
+    }
+}

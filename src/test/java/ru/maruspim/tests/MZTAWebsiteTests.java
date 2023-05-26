@@ -32,7 +32,8 @@ public class MZTAWebsiteTests extends TestBase {
     @DisplayName("Successful fulfilling of the registration form.")
     @Tags({
             @Tag("WEB"),
-            @Tag("NORMAL")
+            @Tag("NORMAL"),
+            @Tag("remote")
     })
         // @Tag("remote")
     void successfulFillFormTest(String expectedAvailableMessage) {
@@ -62,7 +63,8 @@ public class MZTAWebsiteTests extends TestBase {
     @DisplayName("Set invalid e-mail.")
     @Tags({
             @Tag("WEB"),
-            @Tag("NORMAL")
+            @Tag("NORMAL"),
+            @Tag("remote")
     })
     void emailErrorMessagePresenceTest(String userEmail, String expectedEmailErrorMessage) {
         step("Open and check the registration form with invalid e-mail: ", () -> {
@@ -78,7 +80,8 @@ public class MZTAWebsiteTests extends TestBase {
     @DisplayName("Set invalid login.")
     @Tags({
             @Tag("WEB"),
-            @Tag("NORMAL")
+            @Tag("NORMAL"),
+            @Tag("remote")
     })
     void loginErrorMessagePresenceTest(String userLogin, String expectedLoginErrorMessage) {
         step("Open and check the registration form with invalid (already taken) login: ", () -> {
@@ -94,7 +97,8 @@ public class MZTAWebsiteTests extends TestBase {
     @DisplayName("Set invalid password.")
     @Tags({
             @Tag("WEB"),
-            @Tag("NORMAL")
+            @Tag("NORMAL"),
+            @Tag("remote")
     })
     void passwordErrorMessagePresenceTest(String userPassword, String userRepeatedPassword, String expectedPasswordErrorMessage, String expectedPasswordRepeatedErrorMessage) {
         step("Open and check the registration form with invalid password: ", () -> {
@@ -109,7 +113,8 @@ public class MZTAWebsiteTests extends TestBase {
     @DisplayName("Checking drop-down of the list elements in the main menu")
     @Tags({
             @Tag("WEB"),
-            @Tag("NORMAL")
+            @Tag("NORMAL"),
+            @Tag("remote")
     })
     void mainMenuItemsContentTest() {
         step("Check the elements of the main menu: ", () -> {
@@ -125,7 +130,8 @@ public class MZTAWebsiteTests extends TestBase {
     @DisplayName("Checking downloading files from the web-site")
     @Tags({
             @Tag("WEB"),
-            @Tag("NORMAL")
+            @Tag("NORMAL"),
+            @Tag("remote")
     })
     void FilesContentTest() {
         step("Check downloading PDF and XLS files from the web-site: ", () -> {
@@ -139,7 +145,8 @@ public class MZTAWebsiteTests extends TestBase {
     @DisplayName("Checking shopping cart filling")
     @Tags({
             @Tag("WEB"),
-            @Tag("NORMAL")
+            @Tag("NORMAL"),
+            @Tag("remote")
     })
     void CartFillingTest() {
         step("Check cart filling: ", () -> {
@@ -156,7 +163,8 @@ public class MZTAWebsiteTests extends TestBase {
     @DisplayName("Checking searching by the arcticle or name")
     @Tags({
             @Tag("WEB"),
-            @Tag("NORMAL")
+            @Tag("NORMAL"),
+            @Tag("remote")
     })
     void SearchInputTest() {
         step("Check search in the product section: ", () -> {

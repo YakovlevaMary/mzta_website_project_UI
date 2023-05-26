@@ -22,10 +22,9 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
-        Configuration.baseUrl = "https://www.mzta.ru";
+        /*Configuration.baseUrl = "https://www.mzta.ru";
         Configuration.browserSize = "1920x1080";
-
-        /*Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";*/
 
 
         Configuration.pageLoadStrategy = "eager";
@@ -35,13 +34,13 @@ public class TestBase {
         selenoidUrl = selenoidUrl.replaceAll("https://", "");
         Configuration.remote = "https://" + userLoginPassword + "@" + selenoidUrl;    //"https://user1:1234@selenoid.autotests.cloud/wd/hub"
 
-        Configuration.baseUrl = System.getProperty("base_url", "https://demoqa.com");
+        Configuration.baseUrl = System.getProperty("base_url", "https://www.mzta.ru");
 
         String[] browser = System.getProperty("browser", "chrome:100.0").split(":");
         Configuration.browser = browser[0];
         Configuration.browserVersion = browser[1];
 
-        Configuration.browserSize = System.getProperty("browser_size", "1920x1080");*/
+        Configuration.browserSize = System.getProperty("browser_size", "1920x1080");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true); // активировать потоковое видео при запуске браузера
