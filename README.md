@@ -1,5 +1,5 @@
 > <font color="#019901">Не следует заставлять тестировщиков тестировать быстрее. Что может быть хуже испуганных, усталых, цинично настроенных тестировщиков?</font>
-# :woman_technologist:Test automation project for  [Moscow Thermal Automation Plant (MZTA)](https://www.mzta.ru/) company.
+# :woman_technologist:Test automation project for [Moscow Thermal Automation Plant (MZTA)](https://www.mzta.ru/) company.
 > - MZTA is a Russian manufacturer of devices for managing technological processes and engineering systems
 > - MZTA provides a full range of engineering services for the implementation of automation and dispatching systems
 > - MZTA conducts regular training courses on the use of products manufactured by PTK Komega and PTK Kontar
@@ -49,4 +49,19 @@ gradle clean remote -Dbase_url=https://www.mzta.ru -Dselenoid_url=https://seleno
 ```
 If you do not specify any parameters, then the test will run with the default values that we set above.
 ## :globe_with_meridians: Parameterized build in Jenkins
-#### 
+#### Link to job in Jenkins
+Using the link below you can go to the parameterized build of the project:
+
+<code>[Link to the job in Jenkins](https://jenkins.autotests.cloud/job/MaryPimenova-VacancyProjectUnit14/)</code>.
+
+#### Build options
+The table below shows the build options in Jenkins, their purpose and default settings.
+
+| **PARAMETER** | **DESCRIPTION** | **DEFAULT VALUE** |
+|:---------:|:---------:|:---------:|
+| <code>BASE_URL</code>| Base URL of the site for configuration settings|https://www.mzta.ru|
+| <code>SELENOID_URL</code>| Selenoid URL for configuration settings|https://selenoid.autotests.cloud/wd/hub|
+| <code>USER_LOGIN</code>| Login to the Selenoid account|---|
+| <code>USER_PASSWORD</code>| Password to the Selenoid account|---|
+| <code>BROWSER</code>| Browser type and its version|Chrome : 100.0|
+| <code>BROWSER_SIZE</code>| Browser size |1920x1080|
