@@ -2,13 +2,13 @@ package ru.maruspim.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 
 public class MZTAProductionPageComponent {
     // Selenide elements / locator / etc
-    SelenideElement navigationBar = $("[class='uk-nav uk-navbar-nav uk-flex-wrap']"),
-            headingText = $("[class='uk-h4 uk-heading-bullet']"),
+    SelenideElement headingText = $("[class='uk-h4 uk-heading-bullet']"),
             productionPage = $("a[href='#sub']"),
             displayModuleRef = $("a[href*='/kb-d']"),
             relayModuleRef = $("a[href*='/mr8']"),
