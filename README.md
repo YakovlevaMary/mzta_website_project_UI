@@ -7,7 +7,7 @@
 - [Tools and technologies](#hammer_and_wrench-tools-and-technologies)
 - [List of implemented tests](#bookmark_tabs-list-of-implemented-tests)
 - [Running autotests from the terminal](#desktop_computer-running-autotests-from-the-terminal)
-- [Сборка в Jenkins](#-сборка-в-jenkins)
+- [Parameterized build in Jenkins](#globe_with_meridians-parameterized-build-in-jenkins)
 - [Пример Allure-отчета](#-пример-allure-отчета)
 - [Уведомления в Telegram с использованием бота](#-уведомления-в-telegram-с-использованием-бота)
 - [Видео примера запуска тестов в Selenoid](#-видео-примера-запуска-теста-в-selenoid)
@@ -48,4 +48,5 @@ Running the following command in the IDE terminal will run the tests remotely in
 gradle clean remote -Dbase_url=https://www.mzta.ru -Dselenoid_url=https://selenoid.autotests.cloud/wd/hub -Dselenoid_login_password=user1:1234  -Dbrowser=chrome:100.0 -Dbrowser_size=1920x1080
 ```
 If you do not specify any parameters, then the test will run with the default values that we set above.
-
+## :globe_with_meridians: Parameterized build in Jenkins
+#### 
