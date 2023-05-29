@@ -69,6 +69,6 @@ The table below shows the build options in Jenkins, their purpose and default se
 | <code>BROWSER</code>| Browser type and its version|Chrome : 100.0|
 | <code>BROWSER_SIZE</code>| Browser size |1920x1080|
 <p align="center">
-<img title="jenkins" src="media/screenshots/jenkins.jpg">
+<img title="jenkins" src="media/screenshots/jenkins.JPG">
 </p>
 
