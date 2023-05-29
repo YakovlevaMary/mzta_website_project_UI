@@ -33,10 +33,12 @@
 - [x] Checking downloading files from the web-site
 - [x] Checking searching for the production by its arcticle or name
 - [x] Checking fulfilling of the registration form with valid/invalid data
+
 #### ✓ List of realized manual tests
 - [x] Verification of filling the "Callback" form
 - [x] Verification of filling the "Write a letter" form
 - [x] Сhecking the content of articles in the News section
+
 ## :desktop_computer: Running autotests from the terminal
 Lauching tests on a ***remote server*** using Jenkins and Selenoid (login and password are required for authorization) can be done using the following command from the terminal:
 ```bash  
@@ -48,11 +50,12 @@ Running the following command in the IDE terminal will run the tests remotely in
 gradle clean remote -Dbase_url=https://www.mzta.ru -Dselenoid_url=https://selenoid.autotests.cloud/wd/hub -Dselenoid_login_password=user1:1234  -Dbrowser=chrome:100.0 -Dbrowser_size=1920x1080
 ```
 If you do not specify any parameters, then the test will run with the default values that we set above.
+
 ## :globe_with_meridians: Parameterized build in Jenkins
 #### Link to job in Jenkins
 Using the link below you can go to the parameterized build of the project:
 
-<code>[Link to the job in Jenkins](https://jenkins.autotests.cloud/job/MaryPimenova-VacancyProjectUnit14/)</code>.
+<img src="media/logotypes/Jenkins.svg" title="Jenkins" width="5%"/>  <code>[Link to the job in Jenkins](https://jenkins.autotests.cloud/job/MaryPimenova-VacancyProjectUnit14/)</code>.
 
 #### Build options
 The table below shows the build options in Jenkins, their purpose and default settings.
@@ -65,3 +68,7 @@ The table below shows the build options in Jenkins, their purpose and default se
 | <code>USER_PASSWORD</code>| Password to the Selenoid account|---|
 | <code>BROWSER</code>| Browser type and its version|Chrome : 100.0|
 | <code>BROWSER_SIZE</code>| Browser size |1920x1080|
+<p align="center">
+<img title="Jenkins Build" src="media/screenshots/Jenkins.jpg">
+</p>
+
