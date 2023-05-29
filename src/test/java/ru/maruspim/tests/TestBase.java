@@ -31,13 +31,15 @@ public class TestBase {
         String selenoidUrl = System.getProperty("selenoid_url");
         String userLoginPassword = System.getProperty("user_login_password");
         selenoidUrl = selenoidUrl.replaceAll("https://", "");
-        Configuration.remote = "https://" + userLoginPassword + "@" + selenoidUrl;    //"https://user1:1234@selenoid.autotests.cloud/wd/hub"
-
+        //Configuration.remote = "https://" + userLoginPassword + "@" + selenoidUrl;
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
         Configuration.baseUrl = System.getProperty("base_url", "https://www.mzta.ru");
 
         String[] browser = System.getProperty("browser", "chrome:100.0").split(":");
         Configuration.browser = browser[0];
         Configuration.browserVersion = browser[1];
+
+        //gradle clean remote -Dbase_url=https://www.mzta.ru -Dselenoid_login_password=user1:1234 -Dselenoid_url=https://selenoid.autotests.cloud/wd/hub  -Dbrowser=chrome:100.0 -Dbrowser_size=1920x1080
 
         Configuration.browserSize = System.getProperty("browser_size", "1920x1080");
 
