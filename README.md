@@ -4,14 +4,15 @@
 > - MZTA provides a full range of engineering services for the implementation of automation and dispatching systems
 > - MZTA conducts regular training courses on the use of products manufactured by PTK Komega and PTK Kontar
 ## :pretzel: Table of contents
-- [Tools and technologies](#computer-tools-and-technologies)
+- [Tools and technologies](#hammer_and_wrench-tools-and-technologies)
+- [List of implemented tests](#bookmark_tabs-list-of-implemented-tests)
 - [Запуск тестов из терминала](#-запуск-тестов-из-терминала)
 - [Сборка в Jenkins](#-сборка-в-jenkins)
 - [Пример Allure-отчета](#-пример-allure-отчета)
 - [Уведомления в Telegram с использованием бота](#-уведомления-в-telegram-с-использованием-бота)
 - [Видео примера запуска тестов в Selenoid](#-видео-примера-запуска-теста-в-selenoid)
-### A third-level heading
-## :computer: Tools and technologies
+
+## :hammer_and_wrench: Tools and technologies
 
 | IntelliJ IDEA | Java | Selenide | Selenoid  | Allure Report |  Allure TestOps | Gradle | JUnit5 | GitHub | Jenkins| Telegram | Jira |
 |:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|:---------:|
@@ -22,3 +23,17 @@
 - Browsers were launched via <code>[Selenoid](https://aerokube.com/selenoid/)</code>.
 - To run tests remotely a job was implemented in <code>[Jenkins](https://jenkins.autotests.cloud/job/MaryPimenova-VacancyProjectUnit14/)</code> with the creation of an <code>[Allure-report](https://jenkins.autotests.cloud/job/MaryPimenova-VacancyProjectUnit14/7/allure/)</code> and sending the results to <code>Telegram</code> using special Telegram bot.
 - Integrations with с <code>[Allure TestOps](https://allure.autotests.cloud/project/2434/dashboards)</code> and <code>[Jira](https://jira.autotests.cloud/browse/HOMEWORK-720)</code> were implemented.
+
+## :bookmark_tabs: List of implemented tests
+#### List of realized automatic tests
+- [x] Checking for the presence of the main menu items of the site
+- [x] Checking drop-down of the list elements in the main menu
+- [x] Checking for the presence of correct page titles when navigating through menu items
+- [x] Checking shopping cart filling
+- [x] Checking downloading files from the web-site
+- [x] Checking searching for the production by its arcticle or name
+- [x] Checking fulfilling of the registration form with valid/invalid data
+#### List of realized manual tests
+- [x] Verification of filling the "Callback" form
+- [x] Verification of filling the "Write a letter" form
+- [x] Сhecking the content of articles in the News section
