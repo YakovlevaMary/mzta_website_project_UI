@@ -6,7 +6,7 @@
 ## :pretzel: Table of contents
 - [Tools and technologies](#hammer_and_wrench-tools-and-technologies)
 - [List of implemented tests](#bookmark_tabs-list-of-implemented-tests)
-- [Запуск тестов из терминала](#-запуск-тестов-из-терминала)
+- [Running autotests from the terminal](#desktop_computer-running-autotests-from-the-terminal)
 - [Сборка в Jenkins](#-сборка-в-jenkins)
 - [Пример Allure-отчета](#-пример-allure-отчета)
 - [Уведомления в Telegram с использованием бота](#-уведомления-в-telegram-с-использованием-бота)
@@ -25,7 +25,7 @@
 - Integrations with с <code>[Allure TestOps](https://allure.autotests.cloud/project/2434/dashboards)</code> and <code>[Jira](https://jira.autotests.cloud/browse/HOMEWORK-720)</code> were implemented.
 
 ## :bookmark_tabs: List of implemented tests
-#### List of realized automatic tests
+#### ✓ List of realized automatic tests
 - [x] Checking for the presence of the main menu items of the site
 - [x] Checking drop-down of the list elements in the main menu
 - [x] Checking for the presence of correct page titles when navigating through menu items
@@ -33,7 +33,15 @@
 - [x] Checking downloading files from the web-site
 - [x] Checking searching for the production by its arcticle or name
 - [x] Checking fulfilling of the registration form with valid/invalid data
-#### List of realized manual tests
+#### ✓ List of realized manual tests
 - [x] Verification of filling the "Callback" form
 - [x] Verification of filling the "Write a letter" form
 - [x] Сhecking the content of articles in the News section
+## :desktop_computer: Running autotests from the terminal
+___
+***Local launch:***
+```bash  
+gradle clean remote -Dbase_url=https://www.mzta.ru -Dselenoid_url=https://selenoid.autotests.cloud/wd/hub -Dselenoid_login_password=user1:1234 -Dselenoid_video_url=${SELENOID_VIDEO_URL} -Dbrowser=chrome:100.0 -Dbrowser_size=1920x1080
+```
+Running this command in the IDE terminal will run the tests remotely in Selenoid.
+___
