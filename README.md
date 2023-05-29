@@ -1,5 +1,5 @@
 > <font color="#019901">Не следует заставлять тестировщиков тестировать быстрее. Что может быть хуже испуганных, усталых, цинично настроенных тестировщиков?</font>
-# :woman_technologist:Test automation project for  [Moscow Thermal Automation Plant (MZTA)](https://www.mzta.ru/) company.
+# :woman_technologist:Test automation project for [Moscow Thermal Automation Plant (MZTA)](https://www.mzta.ru/) company.
 > - MZTA is a Russian manufacturer of devices for managing technological processes and engineering systems
 > - MZTA provides a full range of engineering services for the implementation of automation and dispatching systems
 > - MZTA conducts regular training courses on the use of products manufactured by PTK Komega and PTK Kontar
@@ -7,7 +7,7 @@
 - [Tools and technologies](#hammer_and_wrench-tools-and-technologies)
 - [List of implemented tests](#bookmark_tabs-list-of-implemented-tests)
 - [Running autotests from the terminal](#desktop_computer-running-autotests-from-the-terminal)
-- [Сборка в Jenkins](#-сборка-в-jenkins)
+- [Parameterized build in Jenkins](#globe_with_meridians-parameterized-build-in-jenkins)
 - [Пример Allure-отчета](#-пример-allure-отчета)
 - [Уведомления в Telegram с использованием бота](#-уведомления-в-telegram-с-использованием-бота)
 - [Видео примера запуска тестов в Selenoid](#-видео-примера-запуска-теста-в-selenoid)
@@ -38,10 +38,30 @@
 - [x] Verification of filling the "Write a letter" form
 - [x] Сhecking the content of articles in the News section
 ## :desktop_computer: Running autotests from the terminal
+Lauching tests on a ***remote server*** using Jenkins and Selenoid (login and password are required for authorization) can be done using the following command from the terminal:
+```bash  
+gradle clean remote
+```
 ___
-***Local launch:***
+Running the following command in the IDE terminal will run the tests remotely in Selenoid taking into account the specified ***parameters***:
 ```bash  
 gradle clean remote -Dbase_url=https://www.mzta.ru -Dselenoid_url=https://selenoid.autotests.cloud/wd/hub -Dselenoid_login_password=user1:1234  -Dbrowser=chrome:100.0 -Dbrowser_size=1920x1080
 ```
-Running this command in the IDE terminal will run the tests remotely in Selenoid.
-___
+If you do not specify any parameters, then the test will run with the default values that we set above.
+## :globe_with_meridians: Parameterized build in Jenkins
+#### Link to job in Jenkins
+Using the link below you can go to the parameterized build of the project:
+
+<code>[Link to the job in Jenkins](https://jenkins.autotests.cloud/job/MaryPimenova-VacancyProjectUnit14/)</code>.
+
+#### Build options
+The table below shows the build options in Jenkins, their purpose and default settings.
+
+| **PARAMETER** | **DESCRIPTION** | **DEFAULT VALUE** |
+|:---------:|:---------:|:---------:|
+| <code>BASE_URL</code>| Base URL of the site for configuration settings|https://www.mzta.ru|
+| <code>SELENOID_URL</code>| Selenoid URL for configuration settings|https://selenoid.autotests.cloud/wd/hub|
+| <code>USER_LOGIN</code>| Login to the Selenoid account|---|
+| <code>USER_PASSWORD</code>| Password to the Selenoid account|---|
+| <code>BROWSER</code>| Browser type and its version|Chrome : 100.0|
+| <code>BROWSER_SIZE</code>| Browser size |1920x1080|
