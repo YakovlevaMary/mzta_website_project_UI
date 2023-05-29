@@ -15,18 +15,18 @@
 <p align="center">
 | LEFT | CENTER | RIGHT |
 |----------------|:---------:|----------------:|
-| <img width="6%" title="IntelliJ IDEA" src="media/logo/Intelij_IDEA.svg"> | <img width="6%" title="Java" src="media/logo/Java.svg"> | <img width="6%" title="Selenide" src="media/logo/Selenide.svg"> |
+| <img width="6%" title="IntelliJ IDEA" src="media/logotypes/Intelij_IDEA.svg"> | <img width="6%" title="Java" src="media/logotypes/Java.svg"> | <img width="6%" title="Selenide" src="media/logotypes/Selenide.svg"> |
 
 
 
 
-<img width="6%" title="Selenoid" src="media/logo/Selenoid.svg">
-<img width="6%" title="Allure Report" src="media/logo/Allure_Report.svg">
-<img width="5%" title="Allure TestOps" src="media/logo/AllureTestOps.svg">
-<img width="6%" title="Gradle" src="media/logo/Gradle.svg">
-<img width="6%" title="JUnit5" src="media/logo/JUnit5.svg">
-<img width="6%" title="GitHub" src="media/logo/GitHub.svg">
-<img width="6%" title="Jenkins" src="media/logo/Jenkins.svg">
-<img width="6%" title="Telegram" src="media/logo/Telegram.svg">
-<img width="5%" title="Jira" src="media/logo/Jira.svg">
+<img width="6%" title="Selenoid" src="media/logotypes/Selenoid.svg">
+<img width="6%" title="Allure Report" src="media/logotypes/Allure_Report.svg">
+<img width="5%" title="Allure TestOps" src="media/logotypes/AllureTestOps.svg">
+<img width="6%" title="Gradle" src="media/logotypes/Gradle.svg">
+<img width="6%" title="JUnit5" src="media/logotypes/JUnit5.svg">
+<img width="6%" title="GitHub" src="media/logotypes/GitHub.svg">
+<img width="6%" title="Jenkins" src="media/logotypes/Jenkins.svg">
+<img width="6%" title="Telegram" src="media/logotypes/Telegram.svg">
+<img width="5%" title="Jira" src="media/logotypes/Jira.svg">
 </p>
