@@ -38,10 +38,14 @@
 - [x] Verification of filling the "Write a letter" form
 - [x] Сhecking the content of articles in the News section
 ## :desktop_computer: Running autotests from the terminal
+Lauching tests on a ***remote server*** using Jenkins and Selenoid (login and password are required for authorization) can be done using the following command from the terminal:
+```bash  
+gradle clean remote
+```
 ___
-***Local launch:***
+Running the following command in the IDE terminal will run the tests remotely in Selenoid taking into account the specified ***parameters***:
 ```bash  
 gradle clean remote -Dbase_url=https://www.mzta.ru -Dselenoid_url=https://selenoid.autotests.cloud/wd/hub -Dselenoid_login_password=user1:1234  -Dbrowser=chrome:100.0 -Dbrowser_size=1920x1080
 ```
-Running this command in the IDE terminal will run the tests remotely in Selenoid.
-___
+If you do not specify any parameters, then the test will run with the default values that we set above.
+
