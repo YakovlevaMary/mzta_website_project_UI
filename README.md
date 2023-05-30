@@ -81,7 +81,7 @@ The table below shows the build options in Jenkins, their purpose and default se
 
 4. Click "Collect" button
 
-5. The results of running a parameterized build can be viewed in Allure report and Allure TestOps
+5. The results of running a parameterized build can be viewed in <code>Allure report</code> and <code>Allure TestOps</code>
 <p align="center">
 <img title="Jenkins_build" src="media/screenshots/Jenkins_build_upd.jpg">
 </p>
@@ -96,8 +96,39 @@ The screenshot below shows the main page of the report.
 <p align="center">
 <img title="Allure_report_overview" src="media/screenshots/Allure_report_overview_mini.jpg">
 </p>
+
 #### Allure report: test cases
 On the Suites tab a standard structural representation of executed tests can be found.
 <p align="center">
-<img title="Allure_report_suits" src="media/screenshots/Allure_report_suits_normal.jpg">
+<img title="Allure_report_suits" src="media/screenshots/Allure_report_suits_optimal.jpg">
 </p>
+
+
+#### Allure report: graphs
+Graphs allow you to see different statistics collected from the test data: statuses breakdown or severity and duration diagrams.
+<p align="center">
+<img title="Allure_report_graphs1" src="media/screenshots/Allure_report_graphs1.jpg">
+</p>
+<p align="center">
+<img title="Allure_report_graphs2" src="media/screenshots/Allure_report_graphs2.jpg">
+</p>
+
+## <img src="media/logotypes/Allure_TestOps.svg" title="Allure_TestOps" width="4%"/> Allure TestOps
+#### Link to Allure TestOps
+Using the link below you can go to the Allure TestOps:
+
+> :globe_with_meridians: <code>[Link to the  Allure TestOps](https://allure.autotests.cloud/project/2434/dashboards)</code>
+#### Allure TestOps: dashboard
+Standard dashboard (see the picture below) provides instant insight on status of tests you're having in your project and resides in the Dashboards section of a project.
+<p align="center">
+<img title="Allure_testOps_overview" src="media/screenshots/Allure_testOps_overview_mini.jpg">
+</p>
+The default dashboard contains:
+
+1. Number of test cases and distribution per state (active, in review, outdated etc.)
+2. Number of test cases and distribution between the manual tests and automated tests
+3. Automation trend with the insight regarding the number of test during last 14 days
+4. Information about launches and thier results status (failed, passed)
+5. Mutes trend, i.e. the number of tests excluded from statistics due to permanent failed state or flaky state.
+
+Allure TestOps supports working with both – manual and automated test cases.
