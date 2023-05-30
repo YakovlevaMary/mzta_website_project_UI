@@ -79,5 +79,5 @@ The table below shows the build options in Jenkins, their purpose and default se
 4. Click "Collect" button
 5. The results of running a parameterized build can be viewed in Allure report and Allure TestOps
 <p align="center">
-<img title="Jenkins_build" src="media/screenshots/Jenkins_build.jpg">
+<img title="Jenkins_build" src="media/screenshots/Jenkins_build_upd.jpg">
 </p>
