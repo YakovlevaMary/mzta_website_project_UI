@@ -72,7 +72,7 @@ The table below shows the build options in Jenkins, their purpose and default se
 #### Job in Jenkins: algorithm and autotests results
 1. Open the project from the link above. The screenshot shows the appearance of the project window in Jenkins.
 <p align="center">
-<img title="jenkins" src="media/screenshots/Jenkins.jpg">
+<img title="Jenkins" src="media/screenshots/Jenkins.jpg">
 </p>
 
 2. Select the item "Collect with parameters" on the left panel
@@ -95,4 +95,9 @@ Using the link below you can go to the Allure report:
 The screenshot below shows the main page of the report.
 <p align="center">
 <img title="Allure_report_overview" src="media/screenshots/Allure_report_overview_mini.jpg">
+</p>
+#### Allure report: test cases
+On the Suites tab a standard structural representation of executed tests can be found.
+<p align="center">
+<img title="Allure_report_suits" src="media/screenshots/Allure_report_suits_normal.jpg">
 </p>
