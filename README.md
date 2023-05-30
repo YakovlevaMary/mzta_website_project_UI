@@ -9,8 +9,9 @@
 - [Running autotests from the terminal](#desktop_computer-running-autotests-from-the-terminal)
 - [Parameterized build in Jenkins](#-parameterized-build-in-jenkins)
 - [Allure report](#-allure-report)
-- [Уведомления в Telegram с использованием бота](#-уведомления-в-telegram-с-использованием-бота)
-- [Видео примера запуска тестов в Selenoid](#-видео-примера-запуска-теста-в-selenoid)
+- [Integration with Jira](#-integration-with-jira)
+- [Telegram notifications using a bot](#-telegram-notifications-using-a-bot)
+- [Video example of running tests in Selenoid](#-video-example-of-running-tests-in-selenoid)
 
 ## :hammer_and_wrench: Tools and technologies
 
@@ -81,7 +82,7 @@ The table below shows the build options in Jenkins, their purpose and default se
 
 4. Click "Collect" button
 
-5. The results of running a parameterized build can be viewed in Allure report and Allure TestOps
+5. The results of running a parameterized build can be viewed in <code>Allure report</code> and <code>Allure TestOps</code>
 <p align="center">
 <img title="Jenkins_build" src="media/screenshots/Jenkins_build_upd.jpg">
 </p>
@@ -91,13 +92,91 @@ The table below shows the build options in Jenkins, their purpose and default se
 Using the link below you can go to the Allure report:
 
 > :globe_with_meridians: <code>[Link to the  Allure report](https://jenkins.autotests.cloud/job/MaryPimenova-VacancyProjectUnit14/7/allure/)</code>
+
 #### Allure report: overview
 The screenshot below shows the main page of the report.
 <p align="center">
 <img title="Allure_report_overview" src="media/screenshots/Allure_report_overview_mini.jpg">
 </p>
+
 #### Allure report: test cases
 On the Suites tab a standard structural representation of executed tests can be found.
 <p align="center">
-<img title="Allure_report_suits" src="media/screenshots/Allure_report_suits_normal.jpg">
+<img title="Allure_report_suits" src="media/screenshots/Allure_report_suits_optimal.jpg">
 </p>
+
+
+#### Allure report: graphs
+Graphs allow you to see different statistics collected from the test data: statuses breakdown or severity and duration diagrams.
+<p align="center">
+<img title="Allure_report_graphs1" src="media/screenshots/Allure_report_graphs1.jpg">
+</p>
+<p align="center">
+<img title="Allure_report_graphs2" src="media/screenshots/Allure_report_graphs2.jpg">
+</p>
+
+## <img src="media/logotypes/AllureTestOps.svg" title="Allure_TestOps" width="4%"/> Allure TestOps
+#### Link to Allure TestOps
+Using the link below you can go to the Allure TestOps:
+
+> :globe_with_meridians: <code>[Link to the  Allure TestOps](https://allure.autotests.cloud/project/2434/dashboards)</code>
+
+#### Allure TestOps: dashboard
+Standard dashboard (see the picture below) provides instant insight on status of tests you're having in your project and resides in the Dashboards section of a project.
+<p align="center">
+<img title="Allure_testOps_overview" src="media/screenshots/Allure_testOps_overview_mini.jpg">
+</p>
+The default dashboard contains:
+
+1. Number of test cases and distribution per state (active, in review, outdated etc.)
+2. Number of test cases and distribution between the manual tests and automated tests
+3. Automation trend with the insight regarding the number of test during last 14 days
+4. Information about launches and thier results status (failed, passed)
+5. Mutes trend, i.e. the number of tests excluded from statistics due to permanent failed state or flaky state.
+
+#### Allure TestOps: test cases
+Allure TestOps supports working with both – manual and automated test cases. Steps of a test case are described in the scenario.
+
+<p align="center">
+<img title="Allure_testOps_test_cases" src="media/screenshots/Allure_testOps_test_cases.jpg">
+</p>
+
+#### Allure TestOps: manual tests
+Manual test cases with scenario of execution are shown on the picture below.
+
+<p align="center">
+<img title="Allure_testOps_manual" src="media/screenshots/Allure_testOps_manual.jpg">
+</p>
+
+#### Allure TestOps: automated tests
+Automated test cases are generated based on test results received from automated tests.
+
+<p align="center">
+<img title="Allure_testOps_automated" src="media/screenshots/Allure_testOps_automated.jpg">
+</p>
+
+## <img src="media/logotypes/Jira.svg" title="Jira" width="4%"/> Integration with Jira
+#### Link to Jira
+Using the link below you can go to the Jira:
+> :globe_with_meridians: <code>[Link to the  Jira](https://jira.autotests.cloud/browse/HOMEWORK-720)</code>
+<p align="center">
+<img title="Jira" src="media/screenshots/Jira.jpg">
+</p>
+
+## <img src="media/logotypes/Telegram.svg" title="Jira" width="4%"/> Telegram notifications using a bot
+As a result of running autotests, a config.json file is generated in the notifications/ folder. On the basis of this file a notification is generated that the bot sends (a diagram is drawn and the corresponding text is added).
+
+```mermaid
+flowchart LR
+    A(Autotests execution) -->|1| B(json file generation)
+    B -->|2| C[notification generation: diagram and text]
+    subgraph Allure notifications
+    C -->|3| D[sending a notification to the messenger]
+    end
+```
+
+<p align="center">
+<img title="Telegram" src="media/screenshots/Telegram.jpg">
+</p>
+
+## <img src="media/logotypes/Selenoid.svg" title="Selenoid" width="4%"/> Video example of running tests in Selenoid
