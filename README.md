@@ -64,8 +64,8 @@ The table below shows the build options in Jenkins, their purpose and default se
 |:---------:|:---------:|:---------:|
 | <code>BASE_URL</code>| Base URL of the site for configuration settings|https://www.mzta.ru|
 | <code>SELENOID_URL</code>| Selenoid URL for configuration settings|https://selenoid.autotests.cloud/wd/hub|
-| <code>USER_LOGIN</code>| Login to the Selenoid account|---|
-| <code>USER_PASSWORD</code>| Password to the Selenoid account|---|
+| <code>USER_LOGIN</code>| Login to the Selenoid account|	:lock:	:lock:	:lock:	:lock:|
+| <code>USER_PASSWORD</code>| Password to the Selenoid account|	:lock:	:lock:	:lock:	:lock:|
 | <code>BROWSER</code>| Browser type and its version|Chrome : 100.0|
 | <code>BROWSER_SIZE</code>| Browser size |1920x1080|
 
@@ -74,9 +74,13 @@ The table below shows the build options in Jenkins, their purpose and default se
 <p align="center">
 <img title="jenkins" src="media/screenshots/Jenkins.jpg">
 </p>
+
 2. Select the item "Collect with parameters" on the left panel
+
 3. If necessary, change the parameters by selecting values from the drop-down lists
+
 4. Click "Collect" button
+
 5. The results of running a parameterized build can be viewed in Allure report and Allure TestOps
 <p align="center">
 <img title="Jenkins_build" src="media/screenshots/Jenkins_build_upd.jpg">
