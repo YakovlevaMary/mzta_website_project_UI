@@ -155,7 +155,7 @@ Automated test cases are generated based on test results received from automated
 <img title="Allure_testOps_automated" src="media/screenshots/Allure_testOps_automated.jpg">
 </p>
 
-## <img src="media/logotypes/Jira.svg" title="Jira" width="4%"/> Integration with Jira
+## <img src="media/logotypes/Jira.svg" title="Jira" width="5%"/> Integration with Jira
 #### Link to Jira
 Using the link below you can go to the Jira:
 > :globe_with_meridians: <code>[Link to the  Jira](https://jira.autotests.cloud/browse/HOMEWORK-720)</code>
@@ -163,7 +163,7 @@ Using the link below you can go to the Jira:
 <img title="Jira" src="media/screenshots/Jira.jpg">
 </p>
 
-## <img src="media/logotypes/Telegram.svg" title="Jira" width="4%"/> Telegram notifications using a bot
+## <img src="media/logotypes/Telegram.svg" title="Jira" width="5%"/> Telegram notifications using a bot
 As a result of running autotests, a config.json file is generated in the notifications/ folder. On the basis of this file a notification is generated that the bot sends (a diagram is drawn and the corresponding text is added).
 
 ```mermaid
@@ -179,4 +179,10 @@ flowchart LR
 <img title="Telegram" src="media/screenshots/Telegram.jpg">
 </p>
 
-## <img src="media/logotypes/Selenoid.svg" title="Selenoid" width="4%"/> Video example of running tests in Selenoid
+*After the completion of the autotests for each of them screenshots, page source, browser console logs and a video recording of the test are available in the report.*
+
+## <img src="media/logotypes/Selenoid.svg" title="Selenoid" width="5%"/> Video example of running tests in Selenoid
+The test report is accompanied by a video in the Attachment section.
+<p align="center">
+  <img title="Selenoid Video" src="media/video/Selenoid_video.gif">
+</p>
