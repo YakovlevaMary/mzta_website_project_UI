@@ -9,6 +9,7 @@
 - [Running autotests from the terminal](#desktop_computer-running-autotests-from-the-terminal)
 - [Parameterized build in Jenkins](#-parameterized-build-in-jenkins)
 - [Allure report](#-allure-report)
+- [Integration with Jira](#-integration-with-jira)
 - [Уведомления в Telegram с использованием бота](#-уведомления-в-telegram-с-использованием-бота)
 - [Видео примера запуска тестов в Selenoid](#-видео-примера-запуска-теста-в-selenoid)
 
@@ -91,6 +92,7 @@ The table below shows the build options in Jenkins, their purpose and default se
 Using the link below you can go to the Allure report:
 
 > :globe_with_meridians: <code>[Link to the  Allure report](https://jenkins.autotests.cloud/job/MaryPimenova-VacancyProjectUnit14/7/allure/)</code>
+
 #### Allure report: overview
 The screenshot below shows the main page of the report.
 <p align="center">
@@ -113,11 +115,12 @@ Graphs allow you to see different statistics collected from the test data: statu
 <img title="Allure_report_graphs2" src="media/screenshots/Allure_report_graphs2.jpg">
 </p>
 
-## <img src="media/logotypes/Allure_TestOps.svg" title="Allure_TestOps" width="4%"/> Allure TestOps
+## <img src="media/logotypes/AllureTestOps.svg" title="Allure_TestOps" width="4%"/> Allure TestOps
 #### Link to Allure TestOps
 Using the link below you can go to the Allure TestOps:
 
 > :globe_with_meridians: <code>[Link to the  Allure TestOps](https://allure.autotests.cloud/project/2434/dashboards)</code>
+
 #### Allure TestOps: dashboard
 Standard dashboard (see the picture below) provides instant insight on status of tests you're having in your project and resides in the Dashboards section of a project.
 <p align="center">
@@ -131,4 +134,31 @@ The default dashboard contains:
 4. Information about launches and thier results status (failed, passed)
 5. Mutes trend, i.e. the number of tests excluded from statistics due to permanent failed state or flaky state.
 
-Allure TestOps supports working with both – manual and automated test cases.
+#### Allure TestOps: test cases
+Allure TestOps supports working with both – manual and automated test cases. Steps of a test case are described in the scenario.
+
+<p align="center">
+<img title="Allure_testOps_test_cases" src="media/screenshots/Allure_testOps_test_cases.jpg">
+</p>
+
+#### Allure TestOps: manual tests
+Manual test cases with scenario of execution are shown on the picture below.
+
+<p align="center">
+<img title="Allure_testOps_manual" src="media/screenshots/Allure_testOps_manual.jpg">
+</p>
+
+#### Allure TestOps: automated tests
+Automated test cases are generated based on test results received from automated tests.
+
+<p align="center">
+<img title="Allure_testOps_automated" src="media/screenshots/Allure_testOps_automated.jpg">
+</p>
+
+## <img src="media/logotypes/Jira.svg" title="Jira" width="4%"/> Integration with Jira
+#### Link to Jira
+Using the link below you can go to the Jira:
+> :globe_with_meridians: <code>[Link to the  Jira](https://jira.autotests.cloud/browse/HOMEWORK-720)</code>
+<p align="center">
+<img title="Jira" src="media/screenshots/Jira.jpg">
+</p>
