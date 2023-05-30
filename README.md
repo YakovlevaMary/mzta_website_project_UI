@@ -10,8 +10,8 @@
 - [Parameterized build in Jenkins](#-parameterized-build-in-jenkins)
 - [Allure report](#-allure-report)
 - [Integration with Jira](#-integration-with-jira)
-- [Уведомления в Telegram с использованием бота](#-уведомления-в-telegram-с-использованием-бота)
-- [Видео примера запуска тестов в Selenoid](#-видео-примера-запуска-теста-в-selenoid)
+- [Telegram notifications using a bot](#-telegram-notifications-using-a-bot)
+- [Video example of running tests in Selenoid](#-video-example-of-running-tests-in-selenoid)
 
 ## :hammer_and_wrench: Tools and technologies
 
@@ -162,3 +162,21 @@ Using the link below you can go to the Jira:
 <p align="center">
 <img title="Jira" src="media/screenshots/Jira.jpg">
 </p>
+
+## <img src="media/logotypes/Telegram.svg" title="Jira" width="4%"/> Telegram notifications using a bot
+As a result of running autotests, a config.json file is generated in the notifications/ folder. On the basis of this file a notification is generated that the bot sends (a diagram is drawn and the corresponding text is added).
+
+```mermaid
+flowchart LR
+    A(Autotests execution) -->|1| B(json file generation)
+    B -->|2| C[notification generation: diagram and text]
+    subgraph Allure notifications
+    C -->|3| D[sending a notification to the messenger]
+    end
+```
+
+<p align="center">
+<img title="Telegram" src="media/screenshots/Telegram.jpg">
+</p>
+
+## <img src="media/logotypes/Selenoid.svg" title="Selenoid" width="4%"/> Video example of running tests in Selenoid
