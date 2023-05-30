@@ -55,7 +55,7 @@ If you do not specify any parameters, then the test will run with the default va
 #### Link to job in Jenkins
 Using the link below you can go to the parameterized build of the project:
 
-<img src="media/logotypes/Jenkins.svg" title="Jenkins" width="5%"/>  <code>[Link to the job in Jenkins](https://jenkins.autotests.cloud/job/MaryPimenova-VacancyProjectUnit14/)</code>.
+> <img src="media/logotypes/Jenkins.svg" title="Jenkins" width="4%"/>  <code>[Link to the job in Jenkins](https://jenkins.autotests.cloud/job/MaryPimenova-VacancyProjectUnit14/)</code>.
 
 #### Build options
 The table below shows the build options in Jenkins, their purpose and default settings.
@@ -69,8 +69,15 @@ The table below shows the build options in Jenkins, their purpose and default se
 | <code>BROWSER</code>| Browser type and its version|Chrome : 100.0|
 | <code>BROWSER_SIZE</code>| Browser size |1920x1080|
 
-#### Job in Jenkins: autotests results
+#### Job in Jenkins: algorithm and autotests results
+1. Open the project from the link above. The screenshot shows the appearance of the project window in Jenkins.
 <p align="center">
-<img title="jenkins" src="media/screenshots/jenkins.JPG">
+<img title="jenkins" src="media/screenshots/Jenkins.jpg">
 </p>
-
+2. Select the item "Collect with parameters" on the left panel
+3. If necessary, change the parameters by selecting values from the drop-down lists
+4. Click "Collect" button
+5. The results of running a parameterized build can be viewed in Allure report and Allure TestOps
+<p align="center">
+<img title="Jenkins_build" src="media/screenshots/Jenkins_build.jpg">
+</p>
