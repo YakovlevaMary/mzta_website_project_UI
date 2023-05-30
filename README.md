@@ -8,7 +8,7 @@
 - [List of implemented tests](#bookmark_tabs-list-of-implemented-tests)
 - [Running autotests from the terminal](#desktop_computer-running-autotests-from-the-terminal)
 - [Parameterized build in Jenkins](#-parameterized-build-in-jenkins)
-- [Allure-report](#-allure-report)
+- [Allure report](#-allure-report)
 - [Уведомления в Telegram с использованием бота](#-уведомления-в-telegram-с-использованием-бота)
 - [Видео примера запуска тестов в Selenoid](#-видео-примера-запуска-теста-в-selenoid)
 
@@ -55,7 +55,7 @@ If you do not specify any parameters, then the test will run with the default va
 #### Link to job in Jenkins
 Using the link below you can go to the parameterized build of the project:
 
-> :globe_with_meridians: <code>[Link to the job in Jenkins](https://jenkins.autotests.cloud/job/MaryPimenova-VacancyProjectUnit14/)</code>.
+> :globe_with_meridians: <code>[Link to the job in Jenkins](https://jenkins.autotests.cloud/job/MaryPimenova-VacancyProjectUnit14/)</code>
 
 #### Build options
 The table below shows the build options in Jenkins, their purpose and default settings.
@@ -84,4 +84,15 @@ The table below shows the build options in Jenkins, their purpose and default se
 5. The results of running a parameterized build can be viewed in Allure report and Allure TestOps
 <p align="center">
 <img title="Jenkins_build" src="media/screenshots/Jenkins_build_upd.jpg">
+</p>
+
+## <img src="media/logotypes/Allure_Report.svg" title="Allure_Report" width="4%"/> Allure report
+#### Link to Allure report
+Using the link below you can go to the Allure report:
+
+> :globe_with_meridians: <code>[Link to the  Allure report](https://jenkins.autotests.cloud/job/MaryPimenova-VacancyProjectUnit14/7/allure/)</code>
+#### Allure report: overview
+The screenshot below shows the main page of the report.
+<p align="center">
+<img title="Allure_report_overview" src="media/screenshots/Allure_report_overview_mini.jpg">
 </p>
