@@ -7,8 +7,8 @@
 - [Tools and technologies](#hammer_and_wrench-tools-and-technologies)
 - [List of implemented tests](#bookmark_tabs-list-of-implemented-tests)
 - [Running autotests from the terminal](#desktop_computer-running-autotests-from-the-terminal)
-- [Parameterized build in Jenkins](#globe_with_meridians-parameterized-build-in-jenkins)
-- [Пример Allure-отчета](#-пример-allure-отчета)
+- [Parameterized build in Jenkins](#-parameterized-build-in-jenkins)
+- [Allure-report](#-allure-report)
 - [Уведомления в Telegram с использованием бота](#-уведомления-в-telegram-с-использованием-бота)
 - [Видео примера запуска тестов в Selenoid](#-видео-примера-запуска-теста-в-selenoid)
 
@@ -51,11 +51,11 @@ gradle clean remote -Dbase_url=https://www.mzta.ru -Dselenoid_url=https://seleno
 ```
 If you do not specify any parameters, then the test will run with the default values that we set above.
 
-## :globe_with_meridians: Parameterized build in Jenkins
+## <img src="media/logotypes/Jenkins.svg" title="Jenkins" width="4%"/> Parameterized build in Jenkins
 #### Link to job in Jenkins
 Using the link below you can go to the parameterized build of the project:
 
-> <img src="media/logotypes/Jenkins.svg" title="Jenkins" width="4%"/>  <code>[Link to the job in Jenkins](https://jenkins.autotests.cloud/job/MaryPimenova-VacancyProjectUnit14/)</code>.
+> :globe_with_meridians: <code>[Link to the job in Jenkins](https://jenkins.autotests.cloud/job/MaryPimenova-VacancyProjectUnit14/)</code>.
 
 #### Build options
 The table below shows the build options in Jenkins, their purpose and default settings.
