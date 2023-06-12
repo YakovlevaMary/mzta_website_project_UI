@@ -133,7 +133,7 @@ public class MZTAWebsiteTests extends TestBase {
             @Tag("NORMAL"),
             @Tag("remote")
     })
-    void FilesContentTest() {
+    void filesContentTest() {
         step("Check downloading PDF and XLS files from the web-site: ", () -> {
             mztaDownloadPageComponent.pdfParseTest()
                     .xlsParseTest();
@@ -148,7 +148,7 @@ public class MZTAWebsiteTests extends TestBase {
             @Tag("NORMAL"),
             @Tag("remote")
     })
-    void CartFillingTest() {
+    void cartFillingTest() {
         step("Check cart filling: ", () -> {
             mztaMainPageComponent.acceptCookies()
                     .openProductionPage();
@@ -166,7 +166,7 @@ public class MZTAWebsiteTests extends TestBase {
             @Tag("NORMAL"),
             @Tag("remote")
     })
-    void SearchInputTest() {
+    void searchInputTest() {
         step("Check search in the product section: ", () -> {
             mztaMainPageComponent.openProductionPage()
                     .searchByArticle()
