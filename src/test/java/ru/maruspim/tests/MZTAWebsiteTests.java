@@ -27,7 +27,7 @@ public class MZTAWebsiteTests extends TestBase {
     @Owner("Mary Pimenova")
 
     @Test
-    @DisplayName("Successful fulfilling of the registration form.")
+    @DisplayName("Checking the header of the opened main page.")
     @Tags({
             @Tag("WEB"),
             @Tag("NORMAL"),
