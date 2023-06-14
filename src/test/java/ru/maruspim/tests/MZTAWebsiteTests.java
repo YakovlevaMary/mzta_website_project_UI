@@ -26,6 +26,21 @@ public class MZTAWebsiteTests extends TestBase {
     @Feature("Checking MZTA website")
     @Owner("Mary Pimenova")
 
+    @Test
+    @DisplayName("Successful fulfilling of the registration form.")
+    @Tags({
+            @Tag("WEB"),
+            @Tag("NORMAL"),
+            @Tag("remote")
+    })
+
+    void mainPageHeaderTest() {
+
+        step("Check the header of the main page: ", () -> {
+            mztaMainPageComponent.openedPageHeaderCheck();
+
+        });
+    }
 
     @ValueSource(strings = {"* Доступно"})
     @ParameterizedTest(name = "Entered login/email are valid")
@@ -35,7 +50,7 @@ public class MZTAWebsiteTests extends TestBase {
             @Tag("NORMAL"),
             @Tag("remote")
     })
-        // @Tag("remote")
+
     void successfulFillFormTest(String expectedAvailableMessage) {
 
         String
@@ -142,25 +157,74 @@ public class MZTAWebsiteTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Checking shopping cart filling")
+    @DisplayName("Checking shopping cart filling with Display Module")
     @Tags({
             @Tag("WEB"),
             @Tag("NORMAL"),
             @Tag("remote")
     })
-    void cartFillingTest() {
-        step("Check cart filling: ", () -> {
+    void cartFillingWithDisplayModuleTest() {
+        step("Check cart filling with Display Module: ", () -> {
             mztaMainPageComponent.acceptCookies()
                     .openProductionPage();
-            mztaProductionPageComponent.productCartFilling();
+            mztaProductionPageComponent.displayModuleSelecting()
+                    .productListHeaderCheck("kB.D - Дисплейные модули")
+                    .pressBuyButton()
+                    .pressAddItemToCartButton();
+        });
+    }
+    @Test
+    @DisplayName("Checking shopping cart filling with Relay Module")
+    @Tags({
+            @Tag("WEB"),
+            @Tag("NORMAL"),
+            @Tag("remote")
+    })
+    void cartFillingWithRelayModuleTest() {
+        step("Check cart filling with Relay Module: ", () -> {
+            mztaMainPageComponent.openProductionPage();
+            mztaProductionPageComponent.relayModuleSelecting()
+                    .productListHeaderCheck("MR8 - Модули релейные")
+                    .pressBuyButton()
+                    .pressAddItemToCartButton();
+        });
+    }
+
+    @Test
+    @DisplayName("Checking shopping cart filling with PTK Module")
+    @Tags({
+            @Tag("WEB"),
+            @Tag("NORMAL"),
+            @Tag("remote")
+    })
+    void  cartFillingWithPTKModuleTest() {
+        step("Check cart filling with PTK Module: ", () -> {
+            mztaMainPageComponent.openProductionPage();
+            mztaProductionPageComponent.ptkModuleSelecting()
+                    .productListHeaderCheck("Субмодули для ПТК КОНТАР")
+                    .pressBuyButton()
+                    .pressAddItemToCartButton();
             mztaMainPageComponent.openShoppingCart();
             mztaCartPageComponent.productsInCartCheck();
             sleep(5000);
         });
     }
-
     @Test
-    @DisplayName("Checking searching by the arcticle or name")
+    @DisplayName("Checking shopping cart content")
+    @Tags({
+            @Tag("WEB"),
+            @Tag("NORMAL"),
+            @Tag("remote")
+    })
+    void  shoppingCartContentTest() {
+        step("Check shopping cart content: ", () -> {
+            mztaMainPageComponent.openShoppingCart();
+            mztaCartPageComponent.productsInCartCheck();
+            sleep(5000);
+        });
+    }
+    @Test
+    @DisplayName("Checking searching by the article or name")
     @Tags({
             @Tag("WEB"),
             @Tag("NORMAL"),

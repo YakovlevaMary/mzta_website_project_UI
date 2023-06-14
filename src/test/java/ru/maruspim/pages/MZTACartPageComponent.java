@@ -17,8 +17,8 @@ public class MZTACartPageComponent {
     @Step("Check products added to the cart")
     public MZTACartPageComponent productsInCartCheck() {
         product_1.shouldHave(text("kB.D-2"));
-        product_2.shouldHave(text("MR8.1151"));
-        product_3.shouldHave(text("WebLinker Modem"));
+        product_2.shouldHave(text("MR8.1121"));
+        product_3.shouldHave(text("MD8.1-01"));
         return this;
     }
 

@@ -15,30 +15,45 @@ public class MZTAProductionPageComponent {
             PTKModuleRef = $("a[href*='/submoduli-kontar']"),
             buyButton = $("[class='uk-button uk-button-danger uk-align-right']"),
             productsSelectionModal = $(".hikashop_products"),
-            displayModuleToCartButton = productsSelectionModal.$("ul li:nth-child(2) div div div:nth-child(3) div a"),
-            relayModuleToCartButton = productsSelectionModal.$("ul li:nth-child(5) div div div:nth-child(3) div a"),
-            PTKModuleToCartButton = productsSelectionModal.$("ul li:nth-child(7) div div div:nth-child(3) div a");
+            itemToCartButton = productsSelectionModal.$("ul li:nth-child(2) div div div:nth-child(3) div a");
 
 
     // Actions
-    @Step("Add chosen product item to the cart")
-    public MZTAProductionPageComponent productCartFilling() {
+    @Step("Select item \"Display Module\" on the production page")
+    public MZTAProductionPageComponent displayModuleSelecting() {
         displayModuleRef.hover().click();
-        headingText.shouldHave(text("kB.D - Дисплейные модули"));
-        buyButton.pressEnter();
-        displayModuleToCartButton.hover().click();
-        productionPage.hover().click();
-        relayModuleRef.hover().click();
-        headingText.shouldHave(text("MR8 - Модули релейные"));
-        buyButton.pressEnter();
-        relayModuleToCartButton.hover().click();
-        productionPage.hover().click();
-        PTKModuleRef.hover().click();
-        headingText.shouldHave(text("Субмодули для ПТК КОНТАР"));
-        buyButton.pressEnter();
-        PTKModuleToCartButton.hover().click();
 
         return this;
     }
 
+    @Step("Check the header of the opened production section")
+    public MZTAProductionPageComponent productListHeaderCheck(String headerText) {
+        headingText.shouldHave(text(headerText));
+
+        return this;
+    }
+    @Step("Press BUY button")
+    public MZTAProductionPageComponent pressBuyButton() {
+        buyButton.pressEnter();
+
+        return this;
+    }
+    @Step("Press ADD TO CART button")
+    public MZTAProductionPageComponent pressAddItemToCartButton() {
+        itemToCartButton.hover().click();
+
+        return this;
+    }
+    @Step("Add chosen product item \"Relay Module\" to the cart")
+    public MZTAProductionPageComponent relayModuleSelecting() {
+        relayModuleRef.hover().click();
+
+        return this;
+    }
+    @Step("Add chosen product item \"PTK Module\" to the cart")
+    public MZTAProductionPageComponent ptkModuleSelecting() {
+        PTKModuleRef.hover().click();
+
+        return this;
+    }
 }

@@ -34,11 +34,15 @@ public class MZTAMainPageComponent {
     @Step("Open page with url: {pageUrl}")
     public MZTAMainPageComponent openPage(String pageUrl) {
         open(pageUrl);
+
+        return this;
+    }
+    @Step("Check main page header")
+    public MZTAMainPageComponent openedPageHeaderCheck() {
         formHeaderText.shouldHave(text("Московский завод тепловой автоматики"));
 
         return this;
     }
-
     @Step("Press access cookies button")
     public MZTAMainPageComponent acceptCookies() {
         cookiesAcceptButton.shouldBe(visible).pressEnter();
@@ -57,7 +61,7 @@ public class MZTAMainPageComponent {
 
     @Step("Open production page")
     public MZTAMainPageComponent openProductionPage() {
-        navigationBar.find(byText("Продукция")).click();
+        navigationBar.find(byText("Продукция")).hover().click();
 
         return this;
     }
