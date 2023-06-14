@@ -171,6 +171,7 @@ public class MZTAWebsiteTests extends TestBase {
                     .productListHeaderCheck("kB.D - Дисплейные модули")
                     .pressBuyButton()
                     .pressAddItemToCartButton();
+            sleep(1);
         });
     }
     @Test
@@ -187,6 +188,7 @@ public class MZTAWebsiteTests extends TestBase {
                     .productListHeaderCheck("MR8 - Модули релейные")
                     .pressBuyButton()
                     .pressAddItemToCartButton();
+            sleep(1);
         });
     }
 
@@ -204,6 +206,7 @@ public class MZTAWebsiteTests extends TestBase {
                     .productListHeaderCheck("Субмодули для ПТК КОНТАР")
                     .pressBuyButton()
                     .pressAddItemToCartButton();
+            sleep(1);
         });
     }
     @Test
@@ -213,11 +216,10 @@ public class MZTAWebsiteTests extends TestBase {
             @Tag("NORMAL"),
             @Tag("remote")
     })
-    void  fulfilledShoppingCartContentTest() {
+    void  cartContentTest() {
         step("Check shopping cart content: ", () -> {
             mztaMainPageComponent.openShoppingCart();
             mztaCartPageComponent.productsInCartCheck();
-            sleep(5000);
         });
     }
     @Test
