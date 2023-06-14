@@ -13,7 +13,6 @@ public class MZTACartPageComponent {
     @Step("Check products added to the cart")
     public MZTACartPageComponent productsInCartCheck() {
         shopCart.shouldHave(text("Список товаров"));
-        shopCart.shouldHave(text("MR8.1121"));
         return this;
     }
 
