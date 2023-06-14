@@ -204,9 +204,6 @@ public class MZTAWebsiteTests extends TestBase {
                     .productListHeaderCheck("Субмодули для ПТК КОНТАР")
                     .pressBuyButton()
                     .pressAddItemToCartButton();
-            mztaMainPageComponent.openShoppingCart();
-            mztaCartPageComponent.productsInCartCheck();
-            sleep(5000);
         });
     }
     @Test
@@ -216,7 +213,7 @@ public class MZTAWebsiteTests extends TestBase {
             @Tag("NORMAL"),
             @Tag("remote")
     })
-    void  shoppingCartContentTest() {
+    void  fulfilledShoppingCartContentTest() {
         step("Check shopping cart content: ", () -> {
             mztaMainPageComponent.openShoppingCart();
             mztaCartPageComponent.productsInCartCheck();
