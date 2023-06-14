@@ -27,7 +27,7 @@ public class MZTAWebsiteTests extends TestBase {
     @Owner("Mary Pimenova")
 
     @Test
-    @DisplayName("Checking the header of the opened main page.")
+    @DisplayName("Checking the header of the opened main page")
     @Tags({
             @Tag("WEB"),
             @Tag("NORMAL"),
@@ -223,17 +223,28 @@ public class MZTAWebsiteTests extends TestBase {
         });
     }
     @Test
-    @DisplayName("Checking searching by the article or name")
+    @DisplayName("Checking search by the article")
     @Tags({
             @Tag("WEB"),
             @Tag("NORMAL"),
             @Tag("remote")
     })
-    void searchInputTest() {
-        step("Check search in the product section: ", () -> {
+    void searchByArticleInputTest() {
+        step("Check search by article in the product section: ", () -> {
             mztaMainPageComponent.openProductionPage()
-                    .searchByArticle()
-                    .openProductionPage()
+                    .searchByArticle();
+        });
+    }
+    @Test
+    @DisplayName("Checking search by the name")
+    @Tags({
+            @Tag("WEB"),
+            @Tag("NORMAL"),
+            @Tag("remote")
+    })
+    void searchByNameInputTest() {
+        step("Check search by name in the product section: ", () -> {
+            mztaMainPageComponent.openProductionPage()
                     .searchByName();
         });
     }
