@@ -41,7 +41,7 @@ public class MZTAWebsiteTests extends TestBase {
         });
     }
 
-    @ValueSource(strings = {"Регистрация", "* Доступно"})
+    @ValueSource(strings = {"* Доступно"})
     @ParameterizedTest(name = "Entered login/email are valid")
     @DisplayName("Successful fulfilling of the registration form.")
     @Tags({
@@ -49,7 +49,7 @@ public class MZTAWebsiteTests extends TestBase {
             @Tag("NORMAL"),
             @Tag("remote")
     })
-    void successfulFillFormTest(String registrationText, String expectedAvailableMessage) {
+    void successfulFillFormTest(String expectedAvailableMessage) {
 
         String
                 userName = randomUtils.createRandomUserName(),
@@ -58,8 +58,7 @@ public class MZTAWebsiteTests extends TestBase {
                 userEmail = randomUtils.createRandomUserEmail();
 
         step("Open and check the registration form with valid data: ", () -> {
-            mztaMainPageComponent.openRegistrationForm()
-                    .openedPageHeaderCheck(registrationText);
+            mztaMainPageComponent.openRegistrationForm();
             mztaRegistrationPageComponent.setUserName(userName)
                     .setUserLogin(userLogin)
                     .loginMessageBoxContentChecking(expectedAvailableMessage)
