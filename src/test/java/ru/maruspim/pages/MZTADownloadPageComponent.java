@@ -15,7 +15,6 @@ public class MZTADownloadPageComponent {
     // Selenide elements / locator / etc
     SelenideElement navigationBar = $("[class='uk-nav uk-navbar-nav uk-flex-wrap']"),
             priceListItemRef = $("a[href*='/skachat/prajs-list']"),
-            headingText = $("[class='uk-h4 uk-heading-bullet']"),
             priceListPDFRef = $("a[href*='/price-pdf?cid=4662']"),
             priceListXLSRef = $("a[href*='/price-xls?cid=4662']");
 

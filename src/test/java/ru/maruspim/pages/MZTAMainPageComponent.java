@@ -17,7 +17,7 @@ public class MZTAMainPageComponent {
             registrationRef = $("a[href*='/regi?return=aHR0cHM6Ly93d3cubXp0YS5ydS8']"),
             navigationBar = $("[class='uk-nav uk-navbar-nav uk-flex-wrap']"),
             articlesItemRef = $("a[href*='/o-kompanii/stati']"),
-            itemListElement = navigationBar.$("li:nth-child(1) div ul").$("li:nth-child(2)"),
+            itemListElements = navigationBar.$("[class='uk-navbar-dropdown uk-navbar-dropdown-bottom-left']"),
             searchInput = $("[class='uk-inline ']").$("[required='required']"),
             headingText = $("[class='uk-h4 uk-heading-bullet']");
 
@@ -73,7 +73,7 @@ public class MZTAMainPageComponent {
 
     @Step("Check the names of the dropped down menu elements")
     public MZTAMainPageComponent elementsDroppingDownNamesCheck(String itemListElementName) {
-        itemListElement.shouldHave(text((itemListElementName)));
+        itemListElements.find(byText(((itemListElementName))));
 
         return this;
     }

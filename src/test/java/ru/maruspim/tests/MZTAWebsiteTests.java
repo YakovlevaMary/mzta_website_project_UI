@@ -125,7 +125,7 @@ public class MZTAWebsiteTests extends TestBase {
 
     @CsvFileSource(resources = "/dropDownElements.csv", delimiter = '|')
     @ParameterizedTest(name = "Drop-down of item: {0}")
-    @DisplayName("Checking drop-down of the list elements in the main menu")
+    @DisplayName("Checking drop-down of the list elements in the main menu.")
     @Tags({
             @Tag("WEB"),
             @Tag("NORMAL"),
