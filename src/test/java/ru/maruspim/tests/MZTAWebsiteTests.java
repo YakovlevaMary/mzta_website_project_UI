@@ -156,17 +156,32 @@ public class MZTAWebsiteTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Checking downloading PDF files from the web-site")
+    @DisplayName("Checking search by the article")
     @Tags({
             @Tag("WEB"),
             @Tag("NORMAL"),
             @Tag("remote")
     })
-    void pdfFilesParsingTest() {
-        step("Check downloading PDF files from the web-site: ", () -> {
-            mztaDownloadPageComponent.openPriceListPage()
-                    .pdfDownloadAndContentCheck();
+    void searchByArticleInputTest() {
+        step("Check search by article in the product section: ", () -> {
+            mztaMainPageComponent.openProductionPage()
+                    .searchInputSetValue("гЕ3035127-01")
+                    .openedPageHeaderCheck("kB.DIO - Модули расширения с цифровыми каналами");
+        });
+    }
 
+    @Test
+    @DisplayName("Checking search by the name")
+    @Tags({
+            @Tag("WEB"),
+            @Tag("NORMAL"),
+            @Tag("remote")
+    })
+    void searchByNameInputTest() {
+        step("Check search by name in the product section: ", () -> {
+            mztaMainPageComponent.openProductionPage()
+                    .searchInputSetValue("kB.TB")
+                    .openedPageHeaderCheck("kB.TB - Коннекторный блок");
         });
     }
 
@@ -181,6 +196,21 @@ public class MZTAWebsiteTests extends TestBase {
         step("Check downloading XLS files from the web-site: ", () -> {
             mztaDownloadPageComponent.openPriceListPage()
                     .xlsDownloadAndContentCheck();
+
+        });
+    }
+
+    @Test
+    @DisplayName("Checking downloading PDF files from the web-site")
+    @Tags({
+            @Tag("WEB"),
+            @Tag("NORMAL"),
+            @Tag("remote")
+    })
+    void pdfFilesParsingTest() {
+        step("Check downloading PDF files from the web-site: ", () -> {
+            mztaDownloadPageComponent.openPriceListPage()
+                    .pdfDownloadAndContentCheck();
 
         });
     }
@@ -255,33 +285,5 @@ public class MZTAWebsiteTests extends TestBase {
         });
     }
 
-    @Test
-    @DisplayName("Checking search by the article")
-    @Tags({
-            @Tag("WEB"),
-            @Tag("NORMAL"),
-            @Tag("remote")
-    })
-    void searchByArticleInputTest() {
-        step("Check search by article in the product section: ", () -> {
-            mztaMainPageComponent.openProductionPage()
-                    .searchInputSetValue("гЕ3035127-01")
-                    .openedPageHeaderCheck("kB.DIO - Модули расширения с цифровыми каналами");
-        });
-    }
 
-    @Test
-    @DisplayName("Checking search by the name")
-    @Tags({
-            @Tag("WEB"),
-            @Tag("NORMAL"),
-            @Tag("remote")
-    })
-    void searchByNameInputTest() {
-        step("Check search by name in the product section: ", () -> {
-            mztaMainPageComponent.openProductionPage()
-                    .searchInputSetValue("kB.TB")
-                    .openedPageHeaderCheck("kB.TB - Коннекторный блок");
-        });
-    }
 }
