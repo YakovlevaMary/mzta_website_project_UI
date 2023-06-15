@@ -33,16 +33,15 @@ public class MZTAWebsiteTests extends TestBase {
             @Tag("NORMAL"),
             @Tag("remote")
     })
-
     void mainPageHeaderTest() {
 
         step("Check the header of the main page: ", () -> {
-            mztaMainPageComponent.openedPageHeaderCheck();
+            mztaMainPageComponent.mainPageHeaderCheck();
 
         });
     }
 
-    @ValueSource(strings = {"* Доступно"})
+    @ValueSource(strings = {"Регистрация", "* Доступно"})
     @ParameterizedTest(name = "Entered login/email are valid")
     @DisplayName("Successful fulfilling of the registration form.")
     @Tags({
@@ -50,8 +49,7 @@ public class MZTAWebsiteTests extends TestBase {
             @Tag("NORMAL"),
             @Tag("remote")
     })
-
-    void successfulFillFormTest(String expectedAvailableMessage) {
+    void successfulFillFormTest(String registrationText, String expectedAvailableMessage) {
 
         String
                 userName = randomUtils.createRandomUserName(),
@@ -60,7 +58,8 @@ public class MZTAWebsiteTests extends TestBase {
                 userEmail = randomUtils.createRandomUserEmail();
 
         step("Open and check the registration form with valid data: ", () -> {
-            mztaMainPageComponent.openRegistrationForm();
+            mztaMainPageComponent.openRegistrationForm()
+                    .openedPageHeaderCheck(registrationText);
             mztaRegistrationPageComponent.setUserName(userName)
                     .setUserLogin(userLogin)
                     .loginMessageBoxContentChecking(expectedAvailableMessage)
@@ -124,34 +123,65 @@ public class MZTAWebsiteTests extends TestBase {
 
     }
 
-    @Test
+    @CsvFileSource(resources = "/dropDownElements.csv", delimiter = '|')
+    @ParameterizedTest(name = "Drop-down of item: {0}")
     @DisplayName("Checking drop-down of the list elements in the main menu")
     @Tags({
             @Tag("WEB"),
             @Tag("NORMAL"),
             @Tag("remote")
     })
-    void mainMenuItemsContentTest() {
-        step("Check the elements of the main menu: ", () -> {
-            mztaMainPageComponent.menuItemsDroppingDownCheck()
-                    .elementsOfDropDownListCheck()
-                    .menuItemsContentCheck();
+    void mainMenuItemsDropDownTest(String mainMenuItemName, String itemListElementName) {
+        step("Check dropping down of the elements in the main menu: ", () -> {
+            mztaMainPageComponent.mainMenuItemHover(mainMenuItemName)
+                    .elementsDroppingDownNamesCheck(itemListElementName);
+
 
         });
-
     }
 
     @Test
-    @DisplayName("Checking downloading files from the web-site")
+    @DisplayName("Checking content of the list elements in the main menu")
     @Tags({
             @Tag("WEB"),
             @Tag("NORMAL"),
             @Tag("remote")
     })
-    void filesContentTest() {
-        step("Check downloading PDF and XLS files from the web-site: ", () -> {
-            mztaDownloadPageComponent.pdfParseTest()
-                    .xlsParseTest();
+    void mainMenuItemsContentTest() {
+        step("Check page content after selecting elements of the main menu: ", () -> {
+            mztaMainPageComponent.mainMenuItemHover("О компании")
+                    .articlesElementOfDropDownListOpen()
+                    .openedPageHeaderCheck("Статьи");
+
+        });
+    }
+
+    @Test
+    @DisplayName("Checking downloading PDF files from the web-site")
+    @Tags({
+            @Tag("WEB"),
+            @Tag("NORMAL"),
+            @Tag("remote")
+    })
+    void pdfFilesParsingTest() {
+        step("Check downloading PDF files from the web-site: ", () -> {
+            mztaDownloadPageComponent.openPriceListPage()
+                    .pdfDownloadAndContentCheck();
+
+        });
+    }
+
+    @Test
+    @DisplayName("Checking downloading XLS files from the web-site")
+    @Tags({
+            @Tag("WEB"),
+            @Tag("NORMAL"),
+            @Tag("remote")
+    })
+    void xlsFilesParsingTest() {
+        step("Check downloading XLS files from the web-site: ", () -> {
+            mztaDownloadPageComponent.openPriceListPage()
+                    .xlsDownloadAndContentCheck();
 
         });
     }
@@ -171,9 +201,10 @@ public class MZTAWebsiteTests extends TestBase {
                     .productListHeaderCheck("kB.D - Дисплейные модули")
                     .pressBuyButton()
                     .pressAddItemToCartButton();
-            sleep(1);
+
         });
     }
+
     @Test
     @DisplayName("Checking shopping cart filling with Relay Module")
     @Tags({
@@ -188,7 +219,7 @@ public class MZTAWebsiteTests extends TestBase {
                     .productListHeaderCheck("MR8 - Модули релейные")
                     .pressBuyButton()
                     .pressAddItemToCartButton();
-            sleep(1);
+
         });
     }
 
@@ -199,16 +230,17 @@ public class MZTAWebsiteTests extends TestBase {
             @Tag("NORMAL"),
             @Tag("remote")
     })
-    void  cartFillingWithPTKModuleTest() {
+    void cartFillingWithPTKModuleTest() {
         step("Check cart filling with PTK Module: ", () -> {
             mztaMainPageComponent.openProductionPage();
             mztaProductionPageComponent.ptkModuleSelecting()
                     .productListHeaderCheck("Субмодули для ПТК КОНТАР")
                     .pressBuyButton()
                     .pressAddItemToCartButton();
-            sleep(1);
+
         });
     }
+
     @Test
     @DisplayName("Checking shopping cart content")
     @Tags({
@@ -216,12 +248,14 @@ public class MZTAWebsiteTests extends TestBase {
             @Tag("NORMAL"),
             @Tag("remote")
     })
-    void  cartContentTest() {
+    void cartContentTest() {
         step("Check shopping cart content: ", () -> {
-            mztaMainPageComponent.openShoppingCart();
+            mztaMainPageComponent.openShoppingCart()
+                    .openedPageHeaderCheck("Корзина");
             mztaCartPageComponent.productsInCartCheck();
         });
     }
+
     @Test
     @DisplayName("Checking search by the article")
     @Tags({
@@ -232,9 +266,11 @@ public class MZTAWebsiteTests extends TestBase {
     void searchByArticleInputTest() {
         step("Check search by article in the product section: ", () -> {
             mztaMainPageComponent.openProductionPage()
-                    .searchByArticle();
+                    .searchInputSetValue("гЕ3035127-01")
+                    .openedPageHeaderCheck("kB.DIO - Модули расширения с цифровыми каналами");
         });
     }
+
     @Test
     @DisplayName("Checking search by the name")
     @Tags({
@@ -245,7 +281,8 @@ public class MZTAWebsiteTests extends TestBase {
     void searchByNameInputTest() {
         step("Check search by name in the product section: ", () -> {
             mztaMainPageComponent.openProductionPage()
-                    .searchByName();
+                    .searchInputSetValue("kB.TB")
+                    .openedPageHeaderCheck("kB.TB - Коннекторный блок");
         });
     }
 }

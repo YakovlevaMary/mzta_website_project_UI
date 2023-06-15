@@ -26,34 +26,39 @@ public class MZTAProductionPageComponent {
         return this;
     }
 
+    @Step("Select item \"Relay Module\" on the production page")
+    public MZTAProductionPageComponent relayModuleSelecting() {
+        relayModuleRef.hover().click();
+
+        return this;
+    }
+
+    @Step("Select item \"PTK Module\" on the production page")
+    public MZTAProductionPageComponent ptkModuleSelecting() {
+        PTKModuleRef.hover().click();
+
+        return this;
+    }
+
     @Step("Check the header of the opened production section")
     public MZTAProductionPageComponent productListHeaderCheck(String headerText) {
         headingText.shouldHave(text(headerText));
 
         return this;
     }
+
     @Step("Press BUY button")
     public MZTAProductionPageComponent pressBuyButton() {
         buyButton.pressEnter();
 
         return this;
     }
+
     @Step("Press ADD TO CART button")
     public MZTAProductionPageComponent pressAddItemToCartButton() {
         itemToCartButton.hover().click();
 
         return this;
     }
-    @Step("Add chosen product item \"Relay Module\" to the cart")
-    public MZTAProductionPageComponent relayModuleSelecting() {
-        relayModuleRef.hover().click();
 
-        return this;
-    }
-    @Step("Add chosen product item \"PTK Module\" to the cart")
-    public MZTAProductionPageComponent ptkModuleSelecting() {
-        PTKModuleRef.hover().click();
-
-        return this;
-    }
 }

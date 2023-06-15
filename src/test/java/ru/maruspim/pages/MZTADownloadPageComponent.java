@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Assertions;
 
 import java.io.File;
 
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -22,11 +21,17 @@ public class MZTADownloadPageComponent {
 
 
     // Actions
-    @Step("Download PDF and check its content")
-    public MZTADownloadPageComponent pdfParseTest() throws Exception {
+    @Step("Open page with price list")
+    public MZTADownloadPageComponent openPriceListPage() {
         navigationBar.find(byText("Скачать")).hover();
         priceListItemRef.click();
-        headingText.shouldHave(text(("Прайс-лист")));
+
+        return this;
+    }
+
+    @Step("Download and check PDF content")
+    public MZTADownloadPageComponent pdfDownloadAndContentCheck() throws Exception {
+
         File download = priceListPDFRef.download();
         PDF pdf = new PDF(download);
         Assertions.assertEquals(
@@ -36,11 +41,8 @@ public class MZTADownloadPageComponent {
     }
 
     @Step("Download XLS and check its content")
-    public MZTADownloadPageComponent xlsParseTest() throws Exception {
+    public MZTADownloadPageComponent xlsDownloadAndContentCheck() throws Exception {
 
-        navigationBar.find(byText("Скачать")).hover();
-        priceListItemRef.click();
-        headingText.shouldHave(text(("Прайс-лист")));
         File download = priceListXLSRef.download();
         XLS xls = new XLS(download);
         Assertions.assertTrue(
