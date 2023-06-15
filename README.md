@@ -96,7 +96,7 @@ Using the link below you can go to the Allure report:
 #### Allure report: overview
 The screenshot below shows the main page of the report.
 <p align="center">
-<img title="Allure_report_overview" src="media/screenshots/Allure_report_overview_mini.jpg">
+<img title="Allure_report_overview" src="media/screenshots/Allure_report_overview.jpg">
 </p>
 
 #### Allure report: test cases
