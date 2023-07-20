@@ -56,7 +56,7 @@ If you do not specify any parameters, then the test will run with the default va
 #### Link to job in Jenkins
 Using the link below you can go to the parameterized build of the project:
 
-> :globe_with_meridians: <code>[Link to the job in Jenkins](https://jenkins.autotests.cloud/job/Students/job/MaryPimenova-VacancyProjectUnit14/)</code>
+> :globe_with_meridians: <code>[Link to the job in Jenkins](https://jenkins.autotests.cloud/job/Students/job/MaryPimenova-VacancyProjectUnit14/7/)</code>
 
 #### Build options
 The table below shows the build options in Jenkins, their purpose and default settings.
