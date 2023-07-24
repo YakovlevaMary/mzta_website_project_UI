@@ -9,6 +9,7 @@
 - [Running autotests from the terminal](#desktop_computer-running-autotests-from-the-terminal)
 - [Parameterized build in Jenkins](#-parameterized-build-in-jenkins)
 - [Allure report](#-allure-report)
+- [Allure TestOps](#-allure-testops)
 - [Integration with Jira](#-integration-with-jira)
 - [Telegram notifications using a bot](#-telegram-notifications-using-a-bot)
 - [Video example of running tests in Selenoid](#-video-example-of-running-tests-in-selenoid)
