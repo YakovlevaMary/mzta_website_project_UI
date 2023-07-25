@@ -12,11 +12,11 @@ import ru.maruspim.pages.*;
 import ru.maruspim.utils.RandomUtils;
 
 public class TestBase {
-    MZTAMainPageComponent mztaMainPageComponent = new MZTAMainPageComponent();
-    MZTADownloadPageComponent mztaDownloadPageComponent = new MZTADownloadPageComponent();
-    MZTAProductionPageComponent mztaProductionPageComponent = new MZTAProductionPageComponent();
-    MZTACartPageComponent mztaCartPageComponent = new MZTACartPageComponent();
-    MZTARegistrationPageComponent mztaRegistrationPageComponent = new MZTARegistrationPageComponent();
+    MainPage mainPage = new MainPage();
+    DownloadPage downloadPage = new DownloadPage();
+    ProductionPage productionPage = new ProductionPage();
+    CartPage cartPage = new CartPage();
+    RegistrationPage registrationPage = new RegistrationPage();
     RandomUtils randomUtils = new RandomUtils();
 
     @BeforeAll

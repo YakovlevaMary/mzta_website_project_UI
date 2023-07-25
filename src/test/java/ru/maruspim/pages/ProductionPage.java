@@ -6,9 +6,8 @@ import io.qameta.allure.Step;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 
-public class MZTAProductionPageComponent {
-    // Selenide elements / locator / etc
-    SelenideElement headingText = $("[class='uk-h4 uk-heading-bullet']"),
+public class ProductionPage {
+    private SelenideElement headingText = $("[class='uk-h4 uk-heading-bullet']"),
             productionPage = $("a[href='#sub']"),
             displayModuleRef = $("a[href*='/kb-d']"),
             relayModuleRef = $("a[href*='/mr8']"),
@@ -17,41 +16,43 @@ public class MZTAProductionPageComponent {
             productsSelectionModal = $(".hikashop_products"),
             itemToCartButton = productsSelectionModal.$("ul li:nth-child(2) div div div:nth-child(3) div a");
 
-
-    // Actions
     @Step("Select item \"Display Module\" on the production page")
-    public MZTAProductionPageComponent displayModuleSelecting() {
+    public ProductionPage selectDisplayModuleItem() {
         displayModuleRef.hover().click();
 
         return this;
     }
 
     @Step("Check the header of the opened production section")
-    public MZTAProductionPageComponent productListHeaderCheck(String headerText) {
+    public ProductionPage checkProductListHeader(String headerText) {
         headingText.shouldHave(text(headerText));
 
         return this;
     }
+
     @Step("Press BUY button")
-    public MZTAProductionPageComponent pressBuyButton() {
+    public ProductionPage pressBuyButton() {
         buyButton.pressEnter();
 
         return this;
     }
+
     @Step("Press ADD TO CART button")
-    public MZTAProductionPageComponent pressAddItemToCartButton() {
+    public ProductionPage pressAddItemToCartButton() {
         itemToCartButton.hover().click();
 
         return this;
     }
+
     @Step("Add chosen product item \"Relay Module\" to the cart")
-    public MZTAProductionPageComponent relayModuleSelecting() {
+    public ProductionPage selectRelayModuleItem() {
         relayModuleRef.hover().click();
 
         return this;
     }
+
     @Step("Add chosen product item \"PTK Module\" to the cart")
-    public MZTAProductionPageComponent ptkModuleSelecting() {
+    public ProductionPage selectPTKModuleItem() {
         PTKModuleRef.hover().click();
 
         return this;

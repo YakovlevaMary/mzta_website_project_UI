@@ -12,18 +12,16 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
-public class MZTADownloadPageComponent {
-    // Selenide elements / locator / etc
-    SelenideElement navigationBar = $("[class='uk-nav uk-navbar-nav uk-flex-wrap']"),
+public class DownloadPage {
+    private SelenideElement navigationBar = $("[class='uk-nav uk-navbar-nav uk-flex-wrap']"),
             priceListItemRef = $("a[href*='/skachat/prajs-list']"),
             headingText = $("[class='uk-h4 uk-heading-bullet']"),
             priceListPDFRef = $("a[href*='/price-pdf?cid=4662']"),
             priceListXLSRef = $("a[href*='/price-xls?cid=4662']");
 
 
-    // Actions
     @Step("Download PDF and check its content")
-    public MZTADownloadPageComponent pdfParseTest() throws Exception {
+    public DownloadPage parseTestForPDF() throws Exception {
         navigationBar.find(byText("Скачать")).hover();
         priceListItemRef.click();
         headingText.shouldHave(text(("Прайс-лист")));
@@ -32,11 +30,12 @@ public class MZTADownloadPageComponent {
         Assertions.assertEquals(
                 "Программно-технический комплекс Комега Basic",
                 pdf.title);
+
         return this;
     }
 
     @Step("Download XLS and check its content")
-    public MZTADownloadPageComponent xlsParseTest() throws Exception {
+    public DownloadPage parseTestForXLS() throws Exception {
 
         navigationBar.find(byText("Скачать")).hover();
         priceListItemRef.click();
@@ -46,8 +45,7 @@ public class MZTADownloadPageComponent {
         Assertions.assertTrue(
                 xls.excel.getSheetAt(0).getRow(1).getCell(0).getStringCellValue()
                         .startsWith("Наименование"));
+
         return this;
-
     }
-
 }

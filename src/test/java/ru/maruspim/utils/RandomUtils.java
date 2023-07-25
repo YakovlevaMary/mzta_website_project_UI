@@ -4,12 +4,10 @@ import com.github.javafaker.Faker;
 
 import java.util.Locale;
 
-// Class for fake data generating
 public class RandomUtils {
     Faker faker = new Faker(new Locale("en-IND"));
 
     public String createRandomUserName() {
-
         return faker.name().firstName();
     }
 
@@ -19,13 +17,10 @@ public class RandomUtils {
     }
 
     public String createRandomUserPassword() {
-
         return faker.internet().password();
     }
 
     public String createRandomUserEmail() {
-
         return faker.internet().emailAddress();
     }
-
 }

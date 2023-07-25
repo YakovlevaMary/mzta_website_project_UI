@@ -8,9 +8,8 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class MZTAMainPageComponent {
-    // Selenide elements / locator / etc
-    SelenideElement formHeaderText = $("[class=uk-text-uppercase]"),
+public class MainPage {
+    private SelenideElement formHeaderText = $("[class=uk-text-uppercase]"),
             cookiesAcceptButton = $("[class='button cookie_accept uk-button uk-button-danger']"),
             registrationButton = $("[uk-icon=user]"),
             cartButton = $("[uk-icon=cart]"),
@@ -29,52 +28,53 @@ public class MZTAMainPageComponent {
             searchInput = $("[class='uk-inline ']").$("[required='required']"),
             headingText = $("[class='uk-h4 uk-heading-bullet']");
 
-
-    // Actions
     @Step("Open page with url: {pageUrl}")
-    public MZTAMainPageComponent openPage(String pageUrl) {
+    public MainPage openPage(String pageUrl) {
         open(pageUrl);
 
         return this;
     }
+
     @Step("Check main page header")
-    public MZTAMainPageComponent openedPageHeaderCheck() {
-        formHeaderText.shouldHave(text("Московский завод тепловой автоматики"));
+    public MainPage checkOpenedPageHeader(String str) {
+        formHeaderText.shouldHave(text(str));
 
         return this;
     }
+
     @Step("Press access cookies button")
-    public MZTAMainPageComponent acceptCookies() {
+    public MainPage acceptCookies() {
         cookiesAcceptButton.shouldBe(visible).pressEnter();
+
         return this;
     }
 
     @Step("Open registration form")
-    public MZTAMainPageComponent openRegistrationForm() {
+    public MainPage openRegistrationForm(String str) {
         registrationButton.click();
-        loginFormText.shouldHave(text("  Регистрация "));
+        loginFormText.shouldHave(text(str));
         registrationRef.click();
-        headingText.shouldHave(text("Регистрация"));
 
         return this;
     }
 
     @Step("Open production page")
-    public MZTAMainPageComponent openProductionPage() {
-        navigationBar.find(byText("Продукция")).hover().click();
+    public MainPage openProductionPage(String str) {
+        navigationBar.find(byText(str)).hover().click();
 
         return this;
     }
 
     @Step("Open shopping cart")
-    public MZTAMainPageComponent openShoppingCart() {
+    public MainPage openShoppingCart(String str) {
         cartButton.click();
-        headingText.shouldHave(text("Корзина"));
+        headingText.shouldHave(text(str));
+
         return this;
     }
 
     @Step("Check the menu items dropping down after mouse hovering")
-    public MZTAMainPageComponent menuItemsDroppingDownCheck() {
+    public MainPage checkMenuItemsDroppingDown() {
         navigationBar.find(byText("О компании")).hover();
         companyItemList.$("li:nth-child(10)").shouldHave(text(("Вакансии")));
         navigationBar.find(byText("Решения")).hover();
@@ -94,38 +94,38 @@ public class MZTAMainPageComponent {
     }
 
     @Step("Open and check the menu items in the drop-down list")
-    public MZTAMainPageComponent elementsOfDropDownListCheck() {
-        navigationBar.find(byText("О компании")).hover();
+    public MainPage checkElementsOfDropDownList(String str1, String str2) {
+        navigationBar.find(byText(str1)).hover();
         articlesItemRef.click();
-        headingText.shouldHave(text(("Статьи")));
+        headingText.shouldHave(text((str2)));
 
         return this;
     }
 
     @Step("Open and check content of the main menu items")
-    public MZTAMainPageComponent menuItemsContentCheck() {
-        navigationBar.find(byText("Партнерам")).hover();
+    public MainPage checkMenuItemsContent(String str1, String str2) {
+        navigationBar.find(byText(str1)).hover();
         partnersItemRef.click();
-        headingText.shouldHave(text(("Партнерам")));
+        headingText.shouldHave(text((str1)));
         cartButton.click();
-        headingText.shouldHave(text("орзина"));
+        headingText.shouldHave(text(str2));
+
         return this;
     }
 
     @Step("Check search by article of a product")
-    public MZTAMainPageComponent searchByArticle() {
-        searchInput.setValue("гЕ3035127-01").pressEnter();
-        headingText.shouldHave(text(("kB.DIO - Модули расширения с цифровыми каналами")));
+    public MainPage searchByArticle(String value, String str) {
+        searchInput.setValue(value).pressEnter();
+        headingText.shouldHave(text((str)));
 
         return this;
     }
 
     @Step("Check search by name of a product")
-    public MZTAMainPageComponent searchByName() {
-        searchInput.setValue("kB.TB").pressEnter();
-        headingText.shouldHave(text(("kB.TB - Коннекторный блок")));
+    public MainPage searchByName(String value, String str) {
+        searchInput.setValue(value).pressEnter();
+        headingText.shouldHave(text((str)));
 
         return this;
     }
-
 }

@@ -6,13 +6,12 @@ import io.qameta.allure.Step;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 
-public class MZTACartPageComponent {
+public class CartPage {
+    private SelenideElement shopCart= $("[class='hikashop_checkout_cart']").$("[class='uk-h4']");
 
-    SelenideElement shopCart= $("[class='hikashop_checkout_cart']").$("[class='uk-h4']");
-    // Actions
     @Step("Check products added to the cart")
-    public MZTACartPageComponent productsInCartCheck() {
-        shopCart.shouldHave(text("Список товаров"));
+    public CartPage checkProductsInCart(String str) {
+        shopCart.shouldHave(text(str));
         return this;
     }
 
