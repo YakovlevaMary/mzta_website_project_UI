@@ -165,7 +165,7 @@ Using the link below you can go to the Jira:
 </p>
 
 ## <img src="media/logotypes/Telegram.svg" title="Telegram" width="5%"/> Telegram notifications using a bot
-As a result of running autotests, a config.json file is generated in the notifications/ folder. On the basis of this file a notification is generated that the bot sends (a diagram is drawn and the corresponding text is added).
+As a result of running autotests, a config.json file is generated in the <code>notifications/</code> folder. On the basis of this file a notification is generated that the bot sends (a diagram is drawn and the corresponding text is added).
 
 ```mermaid
 flowchart LR
