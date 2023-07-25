@@ -1,5 +1,5 @@
-> <font color="#019901">Не следует заставлять тестировщиков тестировать быстрее. Что может быть хуже испуганных, усталых, цинично настроенных тестировщиков?</font>
-# :woman_technologist:Test automation project for [Moscow Thermal Automation Plant (MZTA)](https://www.mzta.ru/) company.
+> Не следует заставлять тестировщиков тестировать быстрее. Что может быть хуже испуганных, усталых, цинично настроенных тестировщиков?</font>
+# :woman_technologist:Test automation project for [Moscow Thermal Automation Plant (MZTA)](https://www.mzta.ru/) company
 > - MZTA is a Russian manufacturer of devices for managing technological processes and engineering systems
 > - MZTA provides a full range of engineering services for the implementation of automation and dispatching systems
 > - MZTA conducts regular training courses on the use of products manufactured by PTK Komega and PTK Kontar
@@ -9,6 +9,7 @@
 - [Running autotests from the terminal](#desktop_computer-running-autotests-from-the-terminal)
 - [Parameterized build in Jenkins](#-parameterized-build-in-jenkins)
 - [Allure report](#-allure-report)
+- [Allure TestOps](#-allure-testops)
 - [Integration with Jira](#-integration-with-jira)
 - [Telegram notifications using a bot](#-telegram-notifications-using-a-bot)
 - [Video example of running tests in Selenoid](#-video-example-of-running-tests-in-selenoid)
@@ -22,7 +23,7 @@
 - <code>[Gradle](https://gradle.org/)</code> was used as an automatic build system.  
 - Frameworks <code>[JUnit5](https://junit.org/junit5/)</code> and <code>[Selenide](https://selenide.org/)</code> for automated testing of web applications have been applied.
 - Browsers were launched via <code>[Selenoid](https://aerokube.com/selenoid/)</code>.
-- To run tests remotely a job was implemented in <code>[Jenkins](https://jenkins.autotests.cloud/job/MaryPimenova-VacancyProjectUnit14/)</code> with the creation of an <code>[Allure-report](https://jenkins.autotests.cloud/job/MaryPimenova-VacancyProjectUnit14/7/allure/)</code> and sending the results to <code>Telegram</code> using special Telegram bot.
+- To run tests remotely a job was implemented in <code>[Jenkins](https://jenkins.autotests.cloud/job/MaryPimenova-VacancyProjectUnit14/)</code> with the creation of an <code>[Allure-report](https://jenkins.autotests.cloud/job/MaryPimenova-VacancyProjectUnit14/7/allure/)</code> and sending the results to <code>[Telegram](https://web.telegram.org/)</code> using special Telegram bot.
 - Integrations with с <code>[Allure TestOps](https://allure.autotests.cloud/project/2434/dashboards)</code> and <code>[Jira](https://jira.autotests.cloud/browse/HOMEWORK-720)</code> were implemented.
 
 ## :bookmark_tabs: List of implemented tests
@@ -56,7 +57,7 @@ If you do not specify any parameters, then the test will run with the default va
 #### Link to job in Jenkins
 Using the link below you can go to the parameterized build of the project:
 
-> :globe_with_meridians: <code>[Link to the job in Jenkins](https://jenkins.autotests.cloud/job/MaryPimenova-VacancyProjectUnit14/)</code>
+> :globe_with_meridians: <code>[Link to the job in Jenkins](https://jenkins.autotests.cloud/job/Students/job/MaryPimenova-VacancyProjectUnit14/)</code>
 
 #### Build options
 The table below shows the build options in Jenkins, their purpose and default settings.
@@ -91,12 +92,12 @@ The table below shows the build options in Jenkins, their purpose and default se
 #### Link to Allure report
 Using the link below you can go to the Allure report:
 
-> :globe_with_meridians: <code>[Link to the  Allure report](https://jenkins.autotests.cloud/job/MaryPimenova-VacancyProjectUnit14/7/allure/)</code>
+> :globe_with_meridians: <code>[Link to the  Allure report](https://jenkins.autotests.cloud/job/Students/job/MaryPimenova-VacancyProjectUnit14/7/allure/)</code>
 
 #### Allure report: overview
 The screenshot below shows the main page of the report.
 <p align="center">
-<img title="Allure_report_overview" src="media/screenshots/Allure_report_overview_mini.jpg">
+<img title="Allure_report_overview" src="media/screenshots/Allure_report_overview.jpg">
 </p>
 
 #### Allure report: test cases
@@ -163,8 +164,8 @@ Using the link below you can go to the Jira:
 <img title="Jira" src="media/screenshots/Jira.jpg">
 </p>
 
-## <img src="media/logotypes/Telegram.svg" title="Jira" width="5%"/> Telegram notifications using a bot
-As a result of running autotests, a config.json file is generated in the notifications/ folder. On the basis of this file a notification is generated that the bot sends (a diagram is drawn and the corresponding text is added).
+## <img src="media/logotypes/Telegram.svg" title="Telegram" width="5%"/> Telegram notifications using a bot
+As a result of running autotests, a config.json file is generated in the <code>notifications/</code> folder. On the basis of this file a notification is generated that the bot sends (a diagram is drawn and the corresponding text is added).
 
 ```mermaid
 flowchart LR
@@ -183,6 +184,7 @@ flowchart LR
 
 ## <img src="media/logotypes/Selenoid.svg" title="Selenoid" width="5%"/> Video example of running tests in Selenoid
 The test report is accompanied by a video in the Attachment section.
+
 <p align="center">
   <img title="Selenoid Video" src="media/video/Selenoid_video.gif">
 </p>

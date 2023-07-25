@@ -35,8 +35,8 @@ public class TestBase {
         Configuration.browserSize = System.getProperty("browser_size", "1920x1080");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("enableVNC", true); // активировать потоковое видео при запуске браузера
-        capabilities.setCapability("enableVideo", true); // активировать запись видео
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", true);
         Configuration.browserCapabilities = capabilities;
     }
 
