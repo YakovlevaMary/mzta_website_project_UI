@@ -184,6 +184,7 @@ flowchart LR
 
 ## <img src="media/logotypes/Selenoid.svg" title="Selenoid" width="5%"/> Video example of running tests in Selenoid
 The test report is accompanied by a video in the Attachment section.
+
 <p align="center">
   <img title="Selenoid Video" src="media/video/Selenoid_video.gif">
 </p>
