@@ -57,7 +57,7 @@ If you do not specify any parameters, then the test will run with the default va
 #### Link to job in Jenkins
 Using the link below you can go to the parameterized build of the project:
 
-> :globe_with_meridians: <code>[Link to the job in Jenkins](https://jenkins.autotests.cloud/job/Students/job/MaryPimenova-VacancyProjectUnit14/7/)</code>
+> :globe_with_meridians: <code>[Link to the job in Jenkins](https://jenkins.autotests.cloud/job/Students/job/MaryPimenova-VacancyProjectUnit14/)</code>
 
 #### Build options
 The table below shows the build options in Jenkins, their purpose and default settings.
@@ -92,7 +92,7 @@ The table below shows the build options in Jenkins, their purpose and default se
 #### Link to Allure report
 Using the link below you can go to the Allure report:
 
-> :globe_with_meridians: <code>[Link to the  Allure report](https://jenkins.autotests.cloud/job/MaryPimenova-VacancyProjectUnit14/7/allure/)</code>
+> :globe_with_meridians: <code>[Link to the  Allure report](https://jenkins.autotests.cloud/job/Students/job/MaryPimenova-VacancyProjectUnit14/7/allure/)</code>
 
 #### Allure report: overview
 The screenshot below shows the main page of the report.
