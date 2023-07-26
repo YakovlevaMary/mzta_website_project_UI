@@ -63,7 +63,7 @@ public class MZTAWebsiteTests extends TestBase {
         });
     }
 
-    @CsvFileSource(resources = "/wrongEmailValidation.csv", delimiter = '|')
+    @CsvFileSource(resources = "/csvFiles/wrongEmailValidation.csv", delimiter = '|')
     @ParameterizedTest(name = "An error message is displayed for the entered e-mail: {0}")
     @Tags({
             @Tag("WEB"),
@@ -79,7 +79,7 @@ public class MZTAWebsiteTests extends TestBase {
         });
     }
 
-    @CsvFileSource(resources = "/wrongLoginValidation.csv", delimiter = '|')
+    @CsvFileSource(resources = "/csvFiles/wrongLoginValidation.csv", delimiter = '|')
     @ParameterizedTest(name = "An error message is displayed for the entered login: {0}")
     @Tags({
             @Tag("WEB"),
@@ -95,7 +95,7 @@ public class MZTAWebsiteTests extends TestBase {
         });
     }
 
-    @CsvFileSource(resources = "/wrongPasswordValidation.csv", delimiter = '|')
+    @CsvFileSource(resources = "/csvFiles/wrongPasswordValidation.csv", delimiter = '|')
     @ParameterizedTest(name = "Error messages are displayed for the entered passwords")
     @Tags({
             @Tag("WEB"),

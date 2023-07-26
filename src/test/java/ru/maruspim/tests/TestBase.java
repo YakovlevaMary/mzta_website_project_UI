@@ -1,12 +1,17 @@
 package ru.maruspim.tests;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import ru.maruspim.config.SelenoidConfig;
+import ru.maruspim.config.WebConfig;
+import ru.maruspim.config.ConfigurationManager;
 import ru.maruspim.helpers.Attach;
 import ru.maruspim.pages.*;
 import ru.maruspim.utils.RandomUtils;
@@ -18,26 +23,28 @@ public class TestBase {
     CartPage cartPage = new CartPage();
     RegistrationPage registrationPage = new RegistrationPage();
     RandomUtils randomUtils = new RandomUtils();
+    protected static WebConfig webConfig = ConfigurationManager.getWebConfig();
+    protected static SelenoidConfig selenoidConfig = ConfigurationManager.getSelenoidConfig();
+    protected static boolean isRemote = Boolean.getBoolean("isRemote");
 
     @BeforeAll
     static void beforeAll() {
 
-        Configuration.pageLoadStrategy = "eager";
-        String selenoidUrl = System.getProperty("selenoid_url");
-        String userLoginPassword = System.getProperty("user_login_password");
-        selenoidUrl = selenoidUrl.replaceAll("https://", "");
-        Configuration.remote = "https://" + userLoginPassword + "@" + selenoidUrl;
-        Configuration.baseUrl = System.getProperty("base_url", "https://www.mzta.ru");
+        Configuration.pageLoadStrategy = System.getProperty("selenide.pageLoadStrategy", "eager");
+        Configuration.baseUrl = webConfig.baseUrl();
+        String[] browserAndVersion = webConfig.browserAndVersion();
+        Configuration.browser = browserAndVersion[0];
+        Configuration.browserVersion = browserAndVersion[1];
+        Configuration.browserSize = webConfig.browserSize();
 
-        String[] browser = System.getProperty("browser", "chrome:100.0").split(":");
-        Configuration.browser = browser[0];
-        Configuration.browserVersion = browser[1];
-        Configuration.browserSize = System.getProperty("browser_size", "1920x1080");
-
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", true);
-        Configuration.browserCapabilities = capabilities;
+        if (isRemote) {
+            String remoteUrl = selenoidConfig.remoteUrl();
+            Configuration.remote = "https://" + selenoidConfig.login() + ":" + selenoidConfig.password() + "@" + remoteUrl + "/wd/hub";
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setCapability("enableVNC", true);
+            capabilities.setCapability("enableVideo", true);
+            Configuration.browserCapabilities = capabilities;
+        }
     }
 
     @BeforeEach
@@ -47,9 +54,11 @@ public class TestBase {
 
     @AfterEach
     void addAttachments() {
+        if (isRemote) {
+            Attach.addVideo();
+        }
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
-        Attach.addVideo();
     }
 }

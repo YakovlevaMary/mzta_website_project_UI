@@ -12,7 +12,6 @@ public class RandomUtils {
     }
 
     public String createRandomUserLogin() {
-
         return faker.name().username();
     }
 
