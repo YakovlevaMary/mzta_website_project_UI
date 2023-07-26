@@ -188,3 +188,5 @@ The test report is accompanied by a video in the Attachment section.
 <p align="center">
   <img title="Selenoid Video" src="media/video/Selenoid_video.gif">
 </p>
+
+[Back to content](#-table-of-contents)
