@@ -42,14 +42,22 @@
 - [x] Сhecking the content of articles in the News section
 
 ## :desktop_computer: Running autotests from the terminal
-Lauching tests on a ***remote server*** using Jenkins and Selenoid (login and password are required for authorization) can be done using the following command from the terminal:
+
+To run the test locally, you need to add the <code>***test.properties***</code> file to the resources folder (src/test/resources/config/). In this file, you need to set possible properties:
+
+```bash 
+selenoid.login = *here is your login*
+selenoid.password = *here is your password*
+selenoid.remoteURL = *here is remote URL*
+```
+Lauching tests ***locally*** can be done using the following command from the IDE terminal:
 ```bash  
-gradle clean remote
+gradle clean test
 ```
 ___
-Running the following command in the IDE terminal will run the tests remotely in Selenoid taking into account the specified ***parameters***:
+Running the following command in the IDE terminal will run the tests ***remotely*** in Selenoid taking into account the specified parameters:
 ```bash  
-gradle clean remote -Dbase_url=https://www.mzta.ru -Dselenoid_url=https://selenoid.autotests.cloud/wd/hub -Dselenoid_login_password=user1:1234  -Dbrowser=chrome:100.0 -Dbrowser_size=1920x1080
+gradle clean test -DisRemote=true
 ```
 If you do not specify any parameters, then the test will run with the default values that we set above.
 
@@ -65,10 +73,7 @@ The table below shows the build options in Jenkins, their purpose and default se
 | **PARAMETER** | **DESCRIPTION** | **DEFAULT VALUE** |
 |:---------:|:---------:|:---------:|
 | <code>BASE_URL</code>| Base URL of the site for configuration settings|https://www.mzta.ru|
-| <code>SELENOID_URL</code>| Selenoid URL for configuration settings|https://selenoid.autotests.cloud/wd/hub|
-| <code>USER_LOGIN</code>| Login to the Selenoid account|	:lock:	:lock:	:lock:	:lock:|
-| <code>USER_PASSWORD</code>| Password to the Selenoid account|	:lock:	:lock:	:lock:	:lock:|
-| <code>BROWSER</code>| Browser type and its version|Chrome : 100.0|
+| <code>BROWSER_AND_VERSION</code>| Browser type and its version|Chrome, 100.0|
 | <code>BROWSER_SIZE</code>| Browser size |1920x1080|
 
 #### Job in Jenkins: algorithm and autotests results
@@ -92,7 +97,7 @@ The table below shows the build options in Jenkins, their purpose and default se
 #### Link to Allure report
 Using the link below you can go to the Allure report:
 
-> :globe_with_meridians: <code>[Link to the  Allure report](https://jenkins.autotests.cloud/job/Students/job/MaryPimenova-VacancyProjectUnit14/7/allure/)</code>
+> :globe_with_meridians: <code>[Link to the  Allure report](https://jenkins.autotests.cloud/job/Students/job/MaryPimenova-VacancyProjectUnit14/44/allure/#)</code>
 
 #### Allure report: overview
 The screenshot below shows the main page of the report.
